@@ -35,7 +35,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
     QString file = QFileDialog::getSaveFileName(this, "Save as...", "name", "PNG (*.png);; BMP (*.bmp);;TIFF (*.tiff *.tif);; JPEG (*.jpg *.jpeg)");
     if (!file.isEmpty())
-   ui->openGLWidget->grab().save(file);
+    ui->openGLWidget->grab().save(file);
 }
 
 
