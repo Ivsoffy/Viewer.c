@@ -25,6 +25,8 @@ public:
     void resizeGL(int w, int h) override;
     void paintGL() override;
     void setFilename(QString);
+    int GetVectors();
+    int GetSurface();
     void setColor(QString);
     void setEdges(double);
     void setVertex(double);

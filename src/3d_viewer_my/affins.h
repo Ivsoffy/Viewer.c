@@ -2,7 +2,6 @@
 #define SRC_AFFINS_H_
 
 #include "obj_reader.h"
-#include "s21_matrix.h"
 
 extern vector* move_xyz(vector* vectors, int count_vector, double x_move,
                         double y_move, double z_move);

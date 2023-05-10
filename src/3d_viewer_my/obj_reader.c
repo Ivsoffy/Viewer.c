@@ -17,16 +17,17 @@
 //   return 0;
 // }
 
-extern int obj_read(const char *filename, vector **vectors, surface_dot **surface,
-                     int *count_vector, int *count_surface) {
-    int r =1;
-   FILE *file;
-   if (file = fopen(filename, "r")) {
-  counting_v_f(filename, count_vector, count_surface);
-  parcing_file(filename, vectors, surface, *count_vector, *count_surface);
-   }
-   else r=0;
-   return r;
+extern int obj_read(const char *filename, vector **vectors,
+                    surface_dot **surface, int *count_vector,
+                    int *count_surface) {
+  int r = 1;
+  FILE *file;
+  if (file = fopen(filename, "r")) {
+    counting_v_f(filename, count_vector, count_surface);
+    parcing_file(filename, vectors, surface, *count_vector, *count_surface);
+  } else
+    r = 0;
+  return r;
 }
 
 void counting_v_f(char *filename, int *count_vector, int *count_surface) {
@@ -69,9 +70,7 @@ void parcing_file(char *filename, vector **vectors, surface_dot **surface,
         char *tmp_char = NULL;
         tmp_char = strtok(bufs, " ");
         while (tmp_char != NULL) {
-          if (tmp_char != "") {
-            numberf++;
-          }
+          numberf++;
           tmp_char = strtok(NULL, " ");
         }
         sur[countf].v = calloc(numberf - 1, sizeof(int));

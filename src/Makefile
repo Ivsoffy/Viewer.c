@@ -3,16 +3,16 @@
 CC = gcc -std=c11 -g
 FLAGS = -Wall -Wextra -Werror
 
-SOURCES = ./calc/polish.c ./calc/credit.c ./calc/container.c
+SOURCES = ./3d_viewer_my/affins.c ./3d_viewer_my/obj_reader.c 
 TEST_DIR = test
 TEST_OUT = $(TEST_DIR)/tests
-TEST_FILE = $(TEST_DIR)/test_calculator.c
+TEST_FILE = $(TEST_DIR)/test_viewer.c
 REPORT_DIR = gcov_report
 GCOV_FILES = *.gcno *.gcov *.info *.gcda *.dSYM *.o *.txt
 TAR_FILE = build.tar
 BUILD_DIR = ./build
-SOURCE_BUILD = ./calc
-DVI_FILE = repa.html
+SOURCE_BUILD = ./3d_viewer_my/
+DVI_FILE = manual.html
 
 ifeq ($(shell uname -s),Linux)
 	FLAGS_TEST = -lcheck -lpthread -lrt -lm -lsubunit -coverage -g
@@ -34,7 +34,7 @@ clean:
 	rm -rf ./$(TEST_OUT) $(REPORT_DIR) $(TAR_FILE) $(BUILD_DIR) $(GCOV_FILES)
 
 dvi:
-	open -a Google\ Chrome report/$(DVI_FILE)
+	open -a Google\ Chrome $(DVI_FILE)
 
 dist:
 	tar -cvf $(TAR_FILE) $(BUILD_DIR)

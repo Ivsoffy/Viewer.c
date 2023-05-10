@@ -25,11 +25,8 @@ set(PROJECT_SOURCES
         obj_reader.h
         affins.c
         affins.h
-        s21_matrix.c
-        s21_matrix.h
         openfiledialog.cpp
         openfiledialog.h
-#        my_opengl_display.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -27,6 +27,8 @@ void MainWindow::on_pushButton_clicked()
         {
             ui->lineEdit->setText(filename);
             ui->openGLWidget->setFilename(filename);
+            ui->lineEdit_2->setText(QString::number(ui->openGLWidget->GetVectors()));
+            ui->lineEdit_3->setText(QString::number(ui->openGLWidget->GetSurface()));
         }
 }
 
@@ -53,16 +55,7 @@ void MainWindow::on_pushButton_3_clicked()
 }
 
 
-void MainWindow::on_spinBox_2_textChanged(const QString &arg1)
-{
-   ui->openGLWidget->setEdges(ui->spinBox_2->value());
-}
 
-
-void MainWindow::on_spinBox_textChanged(const QString &arg1)
-{
-     ui->openGLWidget->setVertex(ui->spinBox->value());
-}
 
 
 void MainWindow::on_doubleSpinBox_textChanged(const QString &arg1)
