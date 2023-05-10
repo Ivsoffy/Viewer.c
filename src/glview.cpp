@@ -7,8 +7,19 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->back_blue = 1;
     this->back_alpha = 0;
     this->speed = 120;
+    this->size_edges = 5;
+    this->size_vertex = 0.5;
+    this->count_vector = 0, this->count_surface = 0;
     setMetrics();
+}
 
+void glView::setEdges(double size) {
+    this->size_edges = size;
+     this->repaint();
+}
+void glView::setVertex(double size) {
+    this->size_vertex = size;
+     this->repaint();
 }
 
 void glView::setMetrics() {
@@ -54,12 +65,21 @@ void glView::resizeGL(int w, int h) {
 }
 
 void glView::setFilename(QString filename) {
-    this->filename=filename;
-    setMetrics();
+     if (obj_read(filename.toStdString().c_str(), &this->vectors, &this->surface,
+             &(this->count_vector), &this->count_surface) )
+     {
+         this->filename=filename;
+         setMetrics();
+     }
+}
+
+void glView::setShift(double x, double y, double z) {
+    this->repaint();
 }
 
 void glView::wheelEvent(QWheelEvent *event) {
-    this->scale+=event->angleDelta().y()/this->speed;
+    this->scale+=(double)event->angleDelta().y()/speed;
+    printf("what the");
     this->repaint();
 }
 
@@ -71,8 +91,8 @@ void glView::mousePressEvent(QMouseEvent *event) {
 void glView::mouseMoveEvent(QMouseEvent *event){
     if (!shift)
     {
-        this->x=event->position().x()/this->size().height()*6.28;
-        this->y=event->position().y()/this->size().width()*6.28;
+        this->x=event->position().x()/this->size().height()/2.14;
+        this->y=event->position().y()/this->size().width()/2.14;
     } else {
         this->move_x -= (event->scenePosition().x() - this->position_x)/50;
         this->move_y +=  (event->scenePosition().y() - this->position_y)/50;
@@ -94,34 +114,36 @@ void glView::keyReleaseEvent(QKeyEvent *event) {
 
 void glView::paintGL() {
 
-  vector *vectors;
-  surface_dot *surface;
-  int count_vector = 0, count_surface = 0;
-  if (obj_read(this->filename.toStdString().c_str(), &vectors, &surface,
-           &count_vector, &count_surface) )
+//  vector *vectors;
+//  surface_dot *surface;
+//  int count_vector = 0, count_surface = 0;
+//  if (obj_read(this->filename.toStdString().c_str(), &vectors, &surface,
+//           &count_vector, &count_surface) )
+    if (this->count_vector)
   {
-      vectors = move_xyz(vectors, count_vector, this->move_x, this->move_y, 0); // перемещение по x, y, z
-      vectors = size_xyz(vectors, count_vector, this->scale, this->scale, this->scale); // масштабирование по x, y, z
-      vectors = rotation_x(vectors, count_vector, this->x); // поворот по x
-      vectors = rotation_y(vectors, count_vector, this->y); // поворот по y
+      this->vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0); // перемещение по x, y, z
+      this->vectors = size_xyz(this->vectors, this->count_vector, this->scale, this->scale, this->scale); // масштабирование по x, y, z
+      this->vectors = rotation_x(this->vectors, this->count_vector, this->x); // поворот по x
+      this->vectors = rotation_y(this->vectors, this->count_vector, this->y); // поворот по y
       glEnable(GL_POINT_SMOOTH);
       glClearColor(this->back_red, this->back_green, this->back_blue, this->back_alpha);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       //команды отрисовки точек
       glColor3d(1, 1, 0.5);
-      glPointSize(5);
+      glPointSize(this->size_edges);
       glBegin(GL_POINTS);
-      for (int i = 0; i < count_vector; i++) {
-          glVertex3d(vectors[i].x, vectors[i].y, vectors[i].z);
+      for (int i = 0; i < this->count_vector; i++) {
+          glVertex3d(this->vectors[i].x, this->vectors[i].y, this->vectors[i].z);
       }
       glEnd();
       //команды отрисовки линий
-      for (int i = 0; i < count_surface; i++) {
+      for (int i = 0; i < this->count_surface; i++) {
           glColor3d(0.5, 0.5, 0.5);
+          glLineWidth(this->size_vertex);
           glBegin(GL_LINE_LOOP);
           for (int j = 0; j < surface[i].number_dot_surface; j++) {
               int index = surface[i].v[j] - 1;
-              glVertex3d(vectors[index].x, vectors[index].y, vectors[index].z);
+              glVertex3d(this->vectors[index].x, this->vectors[index].y, this->vectors[index].z);
           }
           glEnd();
       }

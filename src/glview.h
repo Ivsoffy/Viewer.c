@@ -26,6 +26,9 @@ public:
     void paintGL() override;
     void setFilename(QString);
     void setColor(QString);
+    void setEdges(double);
+    void setVertex(double);
+    void setShift(double, double, double);
 protected:
     void wheelEvent(QWheelEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
@@ -39,8 +42,10 @@ private:
     GLfloat back_blue; // 0 - 255
     GLfloat back_green; // 0 -255
     GLfloat back_alpha; // 0 - 100
-    int scale;
-    int speed;
+    vector *vectors;
+    surface_dot *surface;
+    double scale;
+    double speed;
     double x;
     double y;
     double move_x;
@@ -48,6 +53,9 @@ private:
     double position_x;
     double position_y;
     bool shift;
+    double size_edges;
+    double size_vertex;
+    int count_vector, count_surface;
 };
 
 #endif // GLVIEW_H

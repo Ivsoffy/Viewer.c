@@ -32,6 +32,16 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_spinBox_2_textChanged(const QString &arg1);
+
+    void on_spinBox_textChanged(const QString &arg1);
+
+    void on_doubleSpinBox_textChanged(const QString &arg1);
+
+    void on_doubleSpinBox_2_textChanged(const QString &arg1);
+
+    void on_horizontalScrollBar_4_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
 };

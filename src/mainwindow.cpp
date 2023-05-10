@@ -52,3 +52,33 @@ void MainWindow::on_pushButton_3_clicked()
     printf("You get a gif!");
 }
 
+
+void MainWindow::on_spinBox_2_textChanged(const QString &arg1)
+{
+   ui->openGLWidget->setEdges(ui->spinBox_2->value());
+}
+
+
+void MainWindow::on_spinBox_textChanged(const QString &arg1)
+{
+     ui->openGLWidget->setVertex(ui->spinBox->value());
+}
+
+
+void MainWindow::on_doubleSpinBox_textChanged(const QString &arg1)
+{
+     ui->openGLWidget->setVertex(ui->doubleSpinBox->value());
+}
+
+
+void MainWindow::on_doubleSpinBox_2_textChanged(const QString &arg1)
+{
+     ui->openGLWidget->setEdges(ui->doubleSpinBox_2->value());
+}
+
+
+void MainWindow::on_horizontalScrollBar_4_sliderMoved(int position)
+{
+ui->openGLWidget->setShift(0 ,0 , ui->horizontalScrollBar_4->value());
+}
+
