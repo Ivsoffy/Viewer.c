@@ -12,11 +12,12 @@ typedef struct surface_dot {
   int number_dot_surface;
 } surface_dot;
 
-extern int obj_read(const char *filename, vector **vectors, surface_dot **surface,
-                     int *count_vector, int *count_surface);
+extern int obj_read(const char *filename, vector **vectors,
+                    surface_dot **surface, int *count_vector,
+                    int *count_surface);
 
-void counting_v_f(char *filename, int *count_vector, int *count_surface);
-void parcing_file(char *filename, vector **vectors, surface_dot **surface,
+void counting_v_f(const char *filename, int *count_vector, int *count_surface);
+void parcing_file(const char *filename, vector **vectors, surface_dot **surface,
                   int count_vector, int count_surface);
 
 void print_vector(vector *mas, int count_vector);

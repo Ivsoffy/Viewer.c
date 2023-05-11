@@ -22,15 +22,20 @@ extern int obj_read(const char *filename, vector **vectors,
                     int *count_surface) {
   int r = 1;
   FILE *file;
+
   if (file = fopen(filename, "r")) {
+    fclose(file);
     counting_v_f(filename, count_vector, count_surface);
     parcing_file(filename, vectors, surface, *count_vector, *count_surface);
-  } else
+  } else {
+    system("ls");
     r = 0;
+    fprintf(stderr, "%s: No such file\n", filename);
+  }
   return r;
 }
 
-void counting_v_f(char *filename, int *count_vector, int *count_surface) {
+void counting_v_f(const char *filename, int *count_vector, int *count_surface) {
   FILE *file;
   char str[LEN];
   int countv = 0, countf = 0, numberf = 0;
@@ -44,14 +49,12 @@ void counting_v_f(char *filename, int *count_vector, int *count_surface) {
       }
     }
     fclose(file);
-  } else {
-    fprintf(stderr, "%s: No such file\n", filename);
   }
   *count_vector = countv;
   *count_surface = countf;
 }
 
-void parcing_file(char *filename, vector **vectors, surface_dot **surface,
+void parcing_file(const char *filename, vector **vectors, surface_dot **surface,
                   int count_vector, int count_surface) {
   FILE *file;
   vector *mas = (vector *)calloc(count_vector, sizeof(vector));
@@ -62,8 +65,7 @@ void parcing_file(char *filename, vector **vectors, surface_dot **surface,
     while ((fgets(str, LEN, file)) != NULL) {
       if (str[0] == 'v' && str[1] == ' ') {
         sscanf(str, "%c %lf %lf %lf", &bufc, &mas[countv].x, &mas[countv].y,
-               &mas[countv].z);
-        countv++;
+               &mas[countv++].z);
       }
       if (str[0] == 'f' && str[1] == ' ') {
         strcpy(bufs, str);
@@ -84,15 +86,11 @@ void parcing_file(char *filename, vector **vectors, surface_dot **surface,
           tmp_char = strtok(NULL, " ");
           i++;
         }
-        sur[countf].number_dot_surface = numberf - 1;
-        i = 0;
-        countf++;
+        sur[countf++].number_dot_surface = numberf - 1;
       }
       numberf = 0;
     }
     fclose(file);
-  } else {
-    fprintf(stderr, "%s: No such file\n", filename);
   }
   *surface = sur;
   *vectors = mas;

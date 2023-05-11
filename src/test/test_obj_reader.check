@@ -1,0 +1,12 @@
+#test obj_reader_1
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+// print_vector(vectors, count_vector);
+// print_surface(surface, count_surface);
+ck_assert_int_eq(error, OK);
+ck_assert_int_eq(count_vector, 8);
+ck_assert_int_eq(count_surface, 12);
+
+

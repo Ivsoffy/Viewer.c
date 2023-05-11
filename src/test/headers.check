@@ -1,0 +1,6 @@
+#include "3d_viewer_my/affins.h"
+#include "3d_viewer_my/obj_reader.h"
+#include <stdio.h>
+#include <stdlib.h>
+#define TOL 0.000001
+#define OK 1

@@ -5,8 +5,8 @@ FLAGS = -Wall -Wextra -Werror
 
 SOURCES = ./3d_viewer_my/affins.c ./3d_viewer_my/obj_reader.c 
 TEST_DIR = test
-TEST_OUT = $(TEST_DIR)/tests
-TEST_FILE = $(TEST_DIR)/test_viewer.c
+TEST_OUT = test_viewer
+TEST_FILE = test_viewer.c
 REPORT_DIR = gcov_report
 GCOV_FILES = *.gcno *.gcov *.info *.gcda *.dSYM *.o *.txt
 TAR_FILE = build.tar
@@ -43,7 +43,7 @@ test: clean check_mk
 	gcc $(SOURCES) $(TEST_FILE) $(FLAGS_TEST) -o $(TEST_OUT)
 	./$(TEST_OUT)
 	gcov -f $(TEST_OUT)
-	make gcov_report
+	# make gcov_report
 
 check_mk:
 	rm -rf $(TEST_FILE)
@@ -51,13 +51,11 @@ check_mk:
 	clang-format --style=Google -i $(TEST_FILE)
 
 gcov_report:
-	eval "$$(~/goinfre/homebrew/bin/brew shellenv)"
+	# eval "$(~/goinfre/homebrew/bin/brew shellenv)"
 	mkdir $(REPORT_DIR)
 	lcov --directory ./ --capture --output-file report.info
 	genhtml report.info --output-directory $(REPORT_DIR)
-	rm -rf *.gcno
-	rm -rf *.info
-	rm -rf *.gcda
+	rm -rf *.gcno *.info *.gcda
 	open -a Google\ Chrome $(REPORT_DIR)/index.html
 
 install_lcov: brew lcov
