@@ -20,7 +20,7 @@ void counting_v_f(const char *filename, int *count_vector, int *count_surface);
 void parcing_file(const char *filename, vector **vectors, surface_dot **surface,
                   int count_vector, int count_surface);
 
-void print_vector(vector *mas, int count_vector);
-void print_surface(surface_dot *surface, int count_surface);
+// void print_vector(vector *mas, int count_vector);
+// void print_surface(surface_dot *surface, int count_surface);
 
 #endif  // SRC_OBJ_READER_H_

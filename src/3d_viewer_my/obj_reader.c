@@ -7,13 +7,25 @@
 
 // int main() {
 //   vector *vectors;
+//   vector origin_vectors[8] = {0,  0,   -20, 20,  -20, 20,  -20, -20,
+//                               20, -20, -20, -20, 20,  20,  -20, 20,
+//                               20, 20,  -20, 20,  20,  -20, 20,  -20};
 //   surface_dot *surface;
 //   int count_vector = 0, count_surface = 0;
-//   // obj_read("Pyramids.obj", &vectors, &surface, &count_vector,
-//   // &count_surface);
-//   obj_read("cube.obj", &vectors, &surface, &count_vector, &count_surface);
+//   int error = obj_read("../test/test_cube.obj", &vectors, &surface,
+//                        &count_vector, &count_surface);
 //   print_vector(vectors, count_vector);
-//   print_surface(surface, count_surface);
+//   // print_vector(origin_vectors, count_vector);
+//   // print_surface(surface, count_surface);
+
+//   // vector *vectors;
+//   // surface_dot *surface;
+//   // int count_vector = 0, count_surface = 0;
+//   // // obj_read("Pyramids.obj", &vectors, &surface, &count_vector,
+//   // // &count_surface);
+//   // obj_read("cube.obj", &vectors, &surface, &count_vector, &count_surface);
+//   // print_vector(vectors, count_vector);
+//   // print_surface(surface, count_surface);
 //   return 0;
 // }
 
@@ -28,7 +40,6 @@ extern int obj_read(const char *filename, vector **vectors,
     counting_v_f(filename, count_vector, count_surface);
     parcing_file(filename, vectors, surface, *count_vector, *count_surface);
   } else {
-    system("ls");
     r = 0;
     fprintf(stderr, "%s: No such file\n", filename);
   }
@@ -65,7 +76,8 @@ void parcing_file(const char *filename, vector **vectors, surface_dot **surface,
     while ((fgets(str, LEN, file)) != NULL) {
       if (str[0] == 'v' && str[1] == ' ') {
         sscanf(str, "%c %lf %lf %lf", &bufc, &mas[countv].x, &mas[countv].y,
-               &mas[countv++].z);
+               &mas[countv].z);
+        countv++;
       }
       if (str[0] == 'f' && str[1] == ' ') {
         strcpy(bufs, str);
@@ -96,18 +108,18 @@ void parcing_file(const char *filename, vector **vectors, surface_dot **surface,
   *vectors = mas;
 }
 
-void print_vector(vector *mas, int count_vector) {
-  for (int i = 0; i < count_vector; i++) {
-    printf("%lf %lf %lf\n", mas[i].x, mas[i].y, mas[i].z);
-  }
-}
+// void print_vector(vector *mas, int count_vector) {
+//   for (int i = 0; i < count_vector; i++) {
+//     printf("%lf %lf %lf\n", mas[i].x, mas[i].y, mas[i].z);
+//   }
+// }
 
-void print_surface(surface_dot *surface, int count_surface) {
-  for (int i = 0; i < count_surface; i++) {
-    printf("%d\n", surface[i].number_dot_surface);
-    for (int j = 0; j < surface[i].number_dot_surface; j++) {
-      printf("%d ", surface[i].v[j]);
-    }
-    printf("\n");
-  }
-}
+// void print_surface(surface_dot *surface, int count_surface) {
+//   for (int i = 0; i < count_surface; i++) {
+//     printf("%d\n", surface[i].number_dot_surface);
+//     for (int j = 0; j < surface[i].number_dot_surface; j++) {
+//       printf("%d ", surface[i].v[j]);
+//     }
+//     printf("\n");
+//   }
+// }

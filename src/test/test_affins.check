@@ -1,0 +1,239 @@
+#test affins_move_1
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {40, -20, -20, 
+                            40, -20, 20, 
+                            0, -20, 20 };
+count_vector = 3;
+vectors = move_xyz(vectors, count_vector, 20, 0, 0);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_move_2
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {0, -20, -20, 
+                            0, -20, 20, 
+                            -40, -20, 20 };
+count_vector = 3;
+vectors = move_xyz(vectors, count_vector, -20, 0, 0);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_move_3
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {40, 0, 0, 
+                            40, 0, 40, 
+                            0, 0, 40 };
+count_vector = 3;
+vectors = move_xyz(vectors, count_vector, 20, 20, 20);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_size_1
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {40, -20, -20, 
+                            40, -20, 20, 
+                            -40, -20, 20 };
+count_vector = 3;
+vectors = size_xyz(vectors, count_vector, 2, 1, 1);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_size_2
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {-40, -20, -20, 
+                            -40, -20, 20, 
+                            40, -20, 20 };
+count_vector = 3;
+vectors = size_xyz(vectors, count_vector, -2, 1, 1);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_size_3
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {40, -40, -40, 
+                            40, -40, 40, 
+                            -40, -40, 40 };
+count_vector = 3;
+vectors = size_xyz(vectors, count_vector, 2, 2, 2);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_x_1
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {20, -20, -20, 
+                            20, -20, 20, 
+                            -20, -20, 20 };
+count_vector = 3;
+vectors = rotation_x(vectors, count_vector, 0);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_x_2
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {20, 20, 20, 
+                            20, 20, -20, 
+                            -20, 20, -20 };
+count_vector = 3;
+vectors = rotation_x(vectors, count_vector, M_PI);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_x_3
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {20, -20, 20, 
+                            20, 20, 20, 
+                            -20, 20, 20 };
+count_vector = 3;
+vectors = rotation_x(vectors, count_vector, M_PI/2);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_y_1
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {20, -20, -20, 
+                            20, -20, 20, 
+                            -20, -20, 20 };
+count_vector = 3;
+vectors = rotation_y(vectors, count_vector, 0);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_y_2
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {-20, -20, 20, 
+                            -20, -20, -20, 
+                            20, -20, -20 };
+count_vector = 3;
+vectors = rotation_y(vectors, count_vector, M_PI);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_y_3
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {-20, -20, -20, 
+                            20, -20, -20, 
+                            20, -20, 20 };
+count_vector = 3;
+vectors = rotation_y(vectors, count_vector, M_PI/2);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_z_1
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {20, -20, -20, 
+                            20, -20, 20, 
+                            -20, -20, 20 };
+count_vector = 3;
+vectors = rotation_z(vectors, count_vector, 0);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_z_2
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {-20, 20, -20, 
+                            -20, 20, 20, 
+                            20, 20, 20 };
+count_vector = 3;
+vectors = rotation_z(vectors, count_vector, M_PI);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
+
+#test affins_rotation_z_3
+vector *vectors;
+surface_dot *surface;
+int count_vector = 0, count_surface = 0;
+int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector, &count_surface);
+vector origin_vectors[3] = {-20, -20, -20, 
+                            -20, -20, 20, 
+                            -20, 20, 20 };
+count_vector = 3;
+vectors = rotation_z(vectors, count_vector, M_PI/2);
+for(int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+}
