@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.5)
 
 project(3d_viewer_my VERSION 0.1 LANGUAGES CXX C)
 
+add_compile_options(-fsanitize=address)
+add_link_options(-fsanitize=address)
+
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTOUIC ON)

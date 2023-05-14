@@ -1,11 +1,11 @@
 #include "glview.h"
 
 glView::glView(QWidget*parent):QOpenGLWidget(parent) {
+    this->colorBackground.push_back(ColorPallette("Saphire", 0, 1, 0, 0));
+    this->colorBackground.push_back(ColorPallette("White", 255, 255, 255, 0));
+    this->colorBackground.push_back(ColorPallette("Black", 0, 0, 0, 0));
+    currentBackground = new ColorPallette();
     this->filename= "";
-    this->back_red = 0;
-    this->back_green = 0;
-    this->back_blue = 1;
-    this->back_alpha = 0;
     this->speed = 1000;
     this->size_edges = 5;
     this->size_vertex = 0.5;
@@ -13,14 +13,12 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     setMetrics();
 }
 
-void glView::setEdges(double size) {
-    this->size_edges = size;
-     this->repaint();
+void glView::initializeGL() {
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  glOrtho(-4, 4, 4, -4, -4, 4);
 }
-void glView::setVertex(double size) {
-    this->size_vertex = size;
-     this->repaint();
-}
+
 
 void glView::setMetrics() {
     this->scale = 1;
@@ -33,31 +31,29 @@ void glView::setMetrics() {
     this->position_y=0;
 }
 
+
+void glView::setEdges(double size) {
+    this->size_edges = size;
+     this->update();
+}
+void glView::setVertex(double size) {
+    this->size_vertex = size;
+     this->update();
+}
+
+
 void glView::setColor(QString color) {
-    if (color == "Saphire") {
-        this->back_red = 0;
-        this->back_green = 0;
-        this->back_blue = 1;
-        this->back_alpha = 0;
-    } else if (color == "White") {
-        this->back_red = 255;
-        this->back_green = 255;
-        this->back_blue = 255;
-        this->back_alpha = 0;
-    }
-    else if (color == "Black") {
-            this->back_red = 0;
-            this->back_green = 0;
-            this->back_blue = 0;
-            this->back_alpha = 0;
+    for (ColorPallette pallette: this->colorBackground){
+        if(pallette.Name()==color)
+            *currentBackground = pallette;
     }
 }
 
-void glView::initializeGL() {
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(-8, 8, 8, -8, -8, 8);
+void glView::AddColor(QColor color, QString Colorname) {
+    this->colorBackground.push_back(ColorPallette(Colorname, color.redF(), color.blueF(), color.greenF(), color.alphaF()));
+    *currentBackground = colorBackground.at(this->colorBackground.size()-1);
 }
+
 
 void glView::resizeGL(int w, int h) {
     glViewport(0, 0, w, h);
@@ -75,20 +71,33 @@ void glView::setFilename(QString filename) {
      if (obj_read(filename.toStdString().c_str(), &this->vectors, &this->surface,
              &(this->count_vector), &this->count_surface) )
      {
+         this->current_vectors = new vector[count_vector];
+         for (int j = 0; j < count_vector; j++)
+         {
+             this->current_vectors[j].x=this->vectors[j].x;
+             this->current_vectors[j].y=this->vectors[j].y;
+             this->current_vectors[j].z=this->vectors[j].z;
+         }
          this->filename=filename;
          setMetrics();
      }
 }
 
-void glView::setShift(double x, double y, double z) {
-    this->repaint();
+void glView::SetShift_Z(double Z) {
+    this->scale=Z;
+    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по x, y, z
+    this->Shift_Z->setValue(Z);
+    this->update();
 }
 
 void glView::wheelEvent(QWheelEvent *event) {
-    this->scale+=(double)event->angleDelta().y()/speed;
-    printf("what the");
-        this->vectors = size_xyz(this->vectors, this->count_vector, this->scale, this->scale, this->scale); // масштабирование по x, y, z
-    this->repaint();
+    if (event->position().x()>0 && event->position().y()>0)
+    {
+        this->scale+=(double)event->angleDelta().y()/speed;
+        this->current_vectors = size_xyz(this->vectors, this->count_vector, this->scale, this->scale, this->scale, this->current_vectors); // масштабирование по x, y, z
+        this->Shift_Z->setValue(this->scale);
+        this->update();
+    }
 }
 
 void glView::mousePressEvent(QMouseEvent *event) {
@@ -101,17 +110,18 @@ void glView::mouseMoveEvent(QMouseEvent *event){
     {
         this->x=event->position().x()/this->size().height()/5;
         this->y=event->position().y()/this->size().width()/5;
-        this->vectors = rotation_x(this->vectors, this->count_vector, this->x); // поворот по x
-        this->vectors = rotation_y(this->vectors, this->count_vector, this->y); // поворот по y
+        this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
+        this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
     } else {
         this->move_x -= (event->scenePosition().x() - this->position_x)/50;
         this->move_y +=  (event->scenePosition().y() - this->position_y)/50;
-        this->vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0); // перемещение по x, y, z
+        this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y, z
         this->position_x=event->scenePosition().x();
         this->position_y=event->scenePosition().y();
+                this->Shift_X->setValue(this->scale);
     }
 
-    this->repaint();
+    this->update();
 }
 
 void glView::keyPressEvent(QKeyEvent *event) {
@@ -129,14 +139,14 @@ void glView::paintGL() {
   {
 
       glEnable(GL_POINT_SMOOTH);
-      glClearColor(this->back_red, this->back_green, this->back_blue, this->back_alpha);
+      glClearColor(this->currentBackground->Red(), this->currentBackground->Green(), this->currentBackground->Blue(), this->currentBackground->Alpha());
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       //команды отрисовки точек
       glColor3d(1, 1, 0.5);
       glPointSize(this->size_edges);
       glBegin(GL_POINTS);
       for (int i = 0; i < this->count_vector; i++) {
-          glVertex3d(this->vectors[i].x, this->vectors[i].y, this->vectors[i].z);
+          glVertex3d(this->current_vectors[i].x, this->current_vectors[i].y, this->current_vectors[i].z);
       }
       glEnd();
       //команды отрисовки линий
@@ -146,14 +156,9 @@ void glView::paintGL() {
           glBegin(GL_LINE_LOOP);
           for (int j = 0; j < surface[i].number_dot_surface; j++) {
               int index = surface[i].v[j] - 1;
-              glVertex3d(this->vectors[index].x, this->vectors[index].y, this->vectors[index].z);
+              glVertex3d(this->current_vectors[index].x, this->current_vectors[index].y, this->current_vectors[index].z);
           }
           glEnd();
       }
   }
-    this->move_x = 0;
-    this->move_y = 0;
-    this->x = 0;
-    this->y = 0;
-    this->scale = 1;
 }

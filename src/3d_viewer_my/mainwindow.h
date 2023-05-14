@@ -36,9 +36,22 @@ private slots:
 
     void on_doubleSpinBox_2_textChanged(const QString &arg1);
 
-    void on_horizontalScrollBar_4_sliderMoved(int position);
+    void on_Projection_Color_clicked();
+
+    void on_Vertex_Color_clicked();
+
+    void on_Edges_Color_clicked();
+
+    void on_Shift_X_textChanged(const QString &arg1);
+
+    void on_Shift_Z_textChanged(const QString &arg1);
+
+    void on_Shift_Y_textChanged(const QString &arg1);
+
+    void on_Scroll_ShiftZ_sliderMoved(int position);
 
 private:
     Ui::MainWindow *ui;
+    int countCustomColor;
 };
 #endif // MAINWINDOW_H

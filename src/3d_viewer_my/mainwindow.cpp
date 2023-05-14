@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include <QOpenGLWidget>
 #include <QtWidgets/QFileDialog.h>
+#include <QColorDialog>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,9 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-//    this->on_pushButton_clicked();
-//    ui->comboBox->setItemText(0,"Blue");
-//     ui->comboBox->setItemText(1,"Black");
+    countCustomColor = 1;
+    ui->openGLWidget->Shift_X=this->ui->Shift_X;
+    ui->openGLWidget->Shift_Z=this->ui->Shift_Z;
 }
 
 MainWindow::~MainWindow()
@@ -55,9 +56,6 @@ void MainWindow::on_pushButton_3_clicked()
 }
 
 
-
-
-
 void MainWindow::on_doubleSpinBox_textChanged(const QString &arg1)
 {
      ui->openGLWidget->setVertex(ui->doubleSpinBox->value());
@@ -70,8 +68,50 @@ void MainWindow::on_doubleSpinBox_2_textChanged(const QString &arg1)
 }
 
 
-void MainWindow::on_horizontalScrollBar_4_sliderMoved(int position)
+void MainWindow::on_Projection_Color_clicked()
 {
-ui->openGLWidget->setShift(0 ,0 , ui->horizontalScrollBar_4->value());
+    QColor color = QColorDialog::getColor(QColor("white"), this);
+    if (color.isValid()){
+        QString name = "Custom "+ QString::number(this->countCustomColor);
+        countCustomColor++;
+        ui->openGLWidget->AddColor(color, name);
+        ui->comboBox->addItem(name);
+        ui->comboBox->setCurrentIndex(ui->comboBox->count()-1);
+    }
+}
+
+
+void MainWindow::on_Vertex_Color_clicked()
+{
+
+}
+
+
+void MainWindow::on_Edges_Color_clicked()
+{
+
+}
+
+
+void MainWindow::on_Shift_X_textChanged(const QString &arg1)
+{
+
+}
+
+void MainWindow::on_Shift_Y_textChanged(const QString &arg1)
+{
+
+}
+
+void MainWindow::on_Shift_Z_textChanged(const QString &arg1)
+{
+    ui->Scroll_ShiftZ->setValue(ui->Shift_Z->text().toFloat()*100);
+}
+
+void MainWindow::on_Scroll_ShiftZ_sliderMoved(int position)
+{
+    double shift = (double)position/100;
+    ui->openGLWidget->SetShift_Z(shift);
+//    printf("I'm here! 111\n");
 }
 
