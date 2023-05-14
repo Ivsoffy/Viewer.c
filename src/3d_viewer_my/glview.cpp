@@ -6,7 +6,7 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->colorBackground.push_back(ColorPallette("Black", 0, 0, 0, 0));
     currentBackground = new ColorPallette();
     this->filename= "";
-    this->speed = 1000;
+    this->speed = 120;
     this->size_edges = 5;
     this->size_vertex = 0.5;
     this->count_vector = 0, this->count_surface = 0;
@@ -94,7 +94,7 @@ void glView::wheelEvent(QWheelEvent *event) {
     if (event->position().x()>0 && event->position().y()>0)
     {
         this->scale+=(double)event->angleDelta().y()/speed;
-        this->current_vectors = size_xyz(this->vectors, this->count_vector, this->scale, this->scale, this->scale, this->current_vectors); // масштабирование по x, y, z
+        this->current_vectors = size_xyz(this->current_vectors, this->count_vector, this->scale, this->scale, this->scale, this->current_vectors); // масштабирование по x, y, z
         this->Shift_Z->setValue(this->scale);
         this->update();
     }
@@ -108,14 +108,14 @@ void glView::mousePressEvent(QMouseEvent *event) {
 void glView::mouseMoveEvent(QMouseEvent *event){
     if (!shift)
     {
-        this->x=event->position().x()/this->size().height()/5;
-        this->y=event->position().y()/this->size().width()/5;
+        this->x=event->position().x()/this->size().height()/3.14;
+        this->y=event->position().y()/this->size().width()/3.14;
         this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
         this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
     } else {
-        this->move_x -= (event->scenePosition().x() - this->position_x)/50;
-        this->move_y +=  (event->scenePosition().y() - this->position_y)/50;
-        this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y, z
+        this->move_x += (event->scenePosition().x() - this->position_x)/500;
+        this->move_y +=  (event->scenePosition().y() - this->position_y)/500;
+        this->current_vectors = move_xyz(this->current_vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y, z
         this->position_x=event->scenePosition().x();
         this->position_y=event->scenePosition().y();
                 this->Shift_X->setValue(this->scale);
