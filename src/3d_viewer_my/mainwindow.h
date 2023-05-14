@@ -50,6 +50,16 @@ private slots:
 
     void on_Scroll_ShiftZ_sliderMoved(int position);
 
+    void on_Scroll_ShiftY_sliderMoved(int position);
+
+    void on_Scroll_ShiftX_sliderMoved(int position);
+
+    void on_Scroll_RotateX_sliderMoved(int position);
+
+    void on_Scroll_RotateY_sliderMoved(int position);
+
+    void on_Scroll_RotateZ_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
     int countCustomColor;

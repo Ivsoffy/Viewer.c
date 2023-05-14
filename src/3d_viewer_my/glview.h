@@ -80,6 +80,9 @@ private:
     double size_edges;
     double size_vertex;
     int count_vector, count_surface;
+    QDoubleSpinBox* Shift_X;
+    QDoubleSpinBox* Shift_Y;
+    QDoubleSpinBox* Shift_Z;
 public:
     glView(QWidget*parent=nullptr);
     void initializeGL() override;
@@ -93,9 +96,12 @@ public:
     void setEdges(double);
     void setVertex(double);
     void SetShift_Z(double);
-    QDoubleSpinBox* Shift_X;
-    QDoubleSpinBox* Shift_Y;
-    QDoubleSpinBox* Shift_Z;
+    void SetShift_X(double);
+    void SetShift_Y(double);
+    void SetRotate_X(double);
+    void SetRotate_Y(double);
+    void SetRotate_Z(double);
+    void SetShift_XYZ(QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*);
 protected:
     void wheelEvent(QWheelEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;

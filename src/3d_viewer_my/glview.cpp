@@ -5,6 +5,7 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->colorBackground.push_back(ColorPallette("White", 255, 255, 255, 0));
     this->colorBackground.push_back(ColorPallette("Black", 0, 0, 0, 0));
     currentBackground = new ColorPallette();
+    this->shift=0;
     this->filename= "";
     this->speed = 120;
     this->size_edges = 5;
@@ -19,6 +20,11 @@ void glView::initializeGL() {
   glOrtho(-4, 4, 4, -4, -4, 4);
 }
 
+void glView::SetShift_XYZ(QDoubleSpinBox* X, QDoubleSpinBox* Y, QDoubleSpinBox* Z) {
+   this->Shift_X = X;
+    this->Shift_Y = Y;
+    this->Shift_Z = Z;
+}
 
 void glView::setMetrics() {
     this->scale = 1;
@@ -85,8 +91,38 @@ void glView::setFilename(QString filename) {
 
 void glView::SetShift_Z(double Z) {
     this->scale=Z;
-    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по x, y, z
+    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по z
     this->Shift_Z->setValue(Z);
+    this->update();
+}
+
+void glView::SetShift_X(double X) {
+    this->move_x=X;
+    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x
+    this->Shift_X->setValue(this->move_x);
+    this->update();
+}
+void glView::SetShift_Y(double Y){
+    this->move_y=Y;
+    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по  y
+    this->Shift_Y->setValue(this->move_y);
+     this->update();
+}
+
+void glView::SetRotate_X(double X) {
+    this->x=X;
+    this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
+    this->update();
+}
+
+void glView::SetRotate_Y(double Y) {
+    this->y=Y;
+    this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
+    this->update();
+}
+
+void glView::SetRotate_Z(double Z) {
+    this->current_vectors = rotation_z(this->vectors, this->count_vector, Z, this->current_vectors); // поворот по z
     this->update();
 }
 
@@ -94,9 +130,7 @@ void glView::wheelEvent(QWheelEvent *event) {
     if (event->position().x()>0 && event->position().y()>0)
     {
         this->scale+=(double)event->angleDelta().y()/speed;
-        this->current_vectors = size_xyz(this->current_vectors, this->count_vector, this->scale, this->scale, this->scale, this->current_vectors); // масштабирование по x, y, z
-        this->Shift_Z->setValue(this->scale);
-        this->update();
+        this->SetShift_Z(this->scale);
     }
 }
 
@@ -108,19 +142,19 @@ void glView::mousePressEvent(QMouseEvent *event) {
 void glView::mouseMoveEvent(QMouseEvent *event){
     if (!shift)
     {
-        this->x=event->position().x()/this->size().height()/3.14;
-        this->y=event->position().y()/this->size().width()/3.14;
+        this->x=event->position().x()/this->size().height();
+        this->y=event->position().y()/this->size().width();
         this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
         this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
     } else {
-        this->move_x += (event->scenePosition().x() - this->position_x)/500;
-        this->move_y +=  (event->scenePosition().y() - this->position_y)/500;
-        this->current_vectors = move_xyz(this->current_vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y, z
+        this->move_x+= (event->scenePosition().x() - this->position_x)/speed*scale;
+        this->move_y+=  (event->scenePosition().y() - this->position_y)/speed*scale;
+        this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y,
         this->position_x=event->scenePosition().x();
         this->position_y=event->scenePosition().y();
-                this->Shift_X->setValue(this->scale);
+        this->Shift_X->setValue(this->move_x);
+        this->Shift_Y->setValue(this->move_y);
     }
-
     this->update();
 }
 

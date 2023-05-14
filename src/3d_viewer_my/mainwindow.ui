@@ -271,14 +271,20 @@ background-color : white;</string>
      <string>Y:</string>
     </property>
    </widget>
-   <widget class="QScrollBar" name="horizontalScrollBar_6">
+   <widget class="QScrollBar" name="Scroll_RotateY">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>740</x>
       <y>600</y>
-      <width>211</width>
+      <width>161</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <number>-628</number>
+    </property>
+    <property name="maximum">
+     <number>628</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -417,20 +423,26 @@ QPushButton::Pressed{
      </property>
     </item>
    </widget>
-   <widget class="QScrollBar" name="horizontalScrollBar_7">
+   <widget class="QScrollBar" name="Scroll_RotateZ">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>740</x>
       <y>630</y>
-      <width>211</width>
+      <width>161</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <number>-628</number>
+    </property>
+    <property name="maximum">
+     <number>628</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QScrollBar" name="horizontalScrollBar_2">
+   <widget class="QScrollBar" name="Scroll_ShiftX">
     <property name="geometry">
      <rect>
       <x>740</x>
@@ -449,14 +461,36 @@ QPushButton::Pressed{
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QScrollBar" name="horizontalScrollBar_5">
+   <widget class="QScrollBar" name="Scroll_RotateX">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>740</x>
       <y>570</y>
-      <width>211</width>
+      <width>161</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QScrollBar{
+	background-color: rgba(0, 0, 0, 77);
+
+}
+
+QScrollBar::add-line:horizontal {
+      border: none;
+      background: none;
+}
+
+QScrollBar::sub-line:horizontal {
+      border: none;
+      background: none;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-628</number>
+    </property>
+    <property name="maximum">
+     <number>628</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -567,7 +601,7 @@ background-color : white;</string>
      <string>X:</string>
     </property>
    </widget>
-   <widget class="QScrollBar" name="horizontalScrollBar_3">
+   <widget class="QScrollBar" name="Scroll_ShiftY">
     <property name="geometry">
      <rect>
       <x>740</x>
@@ -960,19 +994,19 @@ border:none;
    <zorder>Vertex_Color</zorder>
    <zorder>label_6</zorder>
    <zorder>label_5</zorder>
-   <zorder>horizontalScrollBar_6</zorder>
+   <zorder>Scroll_RotateY</zorder>
    <zorder>Projection_5</zorder>
    <zorder>Edges_Color</zorder>
    <zorder>label_4</zorder>
    <zorder>comboBox_2</zorder>
-   <zorder>horizontalScrollBar_7</zorder>
-   <zorder>horizontalScrollBar_2</zorder>
-   <zorder>horizontalScrollBar_5</zorder>
+   <zorder>Scroll_RotateZ</zorder>
+   <zorder>Scroll_ShiftX</zorder>
+   <zorder>Scroll_RotateX</zorder>
    <zorder>Projection_7</zorder>
    <zorder>Projection_4</zorder>
    <zorder>Projection_6</zorder>
    <zorder>label_2</zorder>
-   <zorder>horizontalScrollBar_3</zorder>
+   <zorder>Scroll_ShiftY</zorder>
    <zorder>label_3</zorder>
    <zorder>label_7</zorder>
    <zorder>Projection_3</zorder>
