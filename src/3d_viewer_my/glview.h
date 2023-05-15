@@ -84,6 +84,7 @@ private:
     QDoubleSpinBox* Shift_Y;
     QDoubleSpinBox* Shift_Z;
 public:
+    difference diff;
     glView(QWidget*parent=nullptr);
     void initializeGL() override;
     void resizeGL(int w, int h) override;
@@ -102,6 +103,7 @@ public:
     void SetRotate_Y(double);
     void SetRotate_Z(double);
     void SetShift_XYZ(QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*);
+    void recalc();
 protected:
     void wheelEvent(QWheelEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;

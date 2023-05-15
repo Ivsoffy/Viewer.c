@@ -3,19 +3,36 @@
 #include <math.h>
 #include <stdio.h>
 
-// int main() {
-//   vector* vectors;
-//   surface_dot* surface;
-//   int count_vector = 0, count_surface = 0;
-//   obj_read("cube.obj", &vectors, &surface, &count_vector, &count_surface);
-//   print_vector(vectors, count_vector);
-//   print_surface(surface, count_surface);
-//   vectors = move(vectors, count_vector, 0, 2);
-//   print_vector(vectors, count_vector);
-//   return 0;
-// }
+void recalculation(vector* vectors, int count_vector, vector* result, difference diff) {
+    double buf_x = 0, buf_y = 0, buf_z = 0;
+    for (int i = 0; i < count_vector; i++) {
 
-extern vector* move_xyz(vector* vectors, int count_vector, double x_move,
+        result[i].x = (vectors[i].x + diff.x_move)* diff.size;
+        result[i].y = (vectors[i].y + diff.y_move)* diff.size;
+        result[i].z = (vectors[i].z + diff.z_move)* diff.size;
+
+         buf_x = result[i].x;
+         buf_y = result[i].y;
+         buf_z = result[i].z;
+
+        result[i].y = buf_y * cos(diff.x_alpha) + buf_z * sin(diff.x_alpha);
+        buf_y = result[i].y;
+        result[i].y = -buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
+        buf_y = result[i].y;
+
+        result[i].z = -buf_y * sin(diff.x_alpha) + buf_z * cos(diff.x_alpha);
+        buf_z = result[i].z;
+        result[i].z = -buf_x * sin(diff.y_alpha) + buf_z * cos(diff.y_alpha);
+        buf_z = result[i].z;
+
+        result[i].x = buf_x * cos(diff.z_alpha) + buf_y * sin(diff.z_alpha);
+        buf_x = result[i].x;
+        result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
+        buf_x = result[i].x;
+    }
+}
+
+vector* move_xyz(vector* vectors, int count_vector, double x_move,//
                         double y_move, double z_move, vector* result) {
   for (int i = 0; i < count_vector; i++) {
     result[i].x = vectors[i].x + x_move;
@@ -25,7 +42,7 @@ extern vector* move_xyz(vector* vectors, int count_vector, double x_move,
   return result;
 }
 
-extern vector* size_xyz(vector* vectors, int count_vector, double x_size,
+vector* size_xyz(vector* vectors, int count_vector, double x_size,//
                         double y_size, double z_size, vector* result) {
   for (int i = 0; i < count_vector; i++) {
     result[i].x = vectors[i].x * x_size;
@@ -35,32 +52,32 @@ extern vector* size_xyz(vector* vectors, int count_vector, double x_size,
   return result;
 }
 
-extern vector* rotation_x(vector* vectors, int count_vector, double alpha, vector* result) {
+vector* rotation_x(vector* vectors, int count_vector, double alpha, vector* result) {
   double buf = 0.0;
   for (int i = 0; i < count_vector; i++) {
-    buf = vectors[i].y;
+//    buf = vectors[i].y;
     result[i].y = vectors[i].y * cos(alpha) + vectors[i].z * sin(alpha);
-    result[i].z = -buf * sin(alpha) + vectors[i].z * cos(alpha);
+    result[i].z = -vectors[i].y * sin(alpha) + vectors[i].z * cos(alpha);
   }
   return result;
 }
 
-extern vector* rotation_y(vector* vectors, int count_vector, double alpha, vector* result) {
+vector* rotation_y(vector* vectors, int count_vector, double alpha, vector* result) {
   double buf = 0.0;
   for (int i = 0; i < count_vector; i++) {
     buf = vectors[i].x;
     result[i].x = vectors[i].x * cos(alpha) + vectors[i].z * sin(alpha);
-    result[i].z = -buf * sin(alpha) + vectors[i].z * cos(alpha);
+    result[i].z = -vectors[i].x * sin(alpha) + vectors[i].z * cos(alpha);
   }
   return result;
 }
 
-extern vector* rotation_z(vector* vectors, int count_vector, double alpha, vector* result) {
+vector* rotation_z(vector* vectors, int count_vector, double alpha, vector* result) {
   double buf = 0.0;
   for (int i = 0; i < count_vector; i++) {
     buf = vectors[i].x;
     result[i].x = vectors[i].x * cos(alpha) + vectors[i].y * sin(alpha);
-    result[i].y = -buf * sin(alpha) + vectors[i].y * cos(alpha);
+    result[i].y = -vectors[i].x * sin(alpha) + vectors[i].y * cos(alpha);
   }
   return result;
 }
