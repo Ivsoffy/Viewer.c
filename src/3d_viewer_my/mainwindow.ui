@@ -126,11 +126,11 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_3">
+   <widget class="QComboBox" name="Vertex_Settenings">
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>290</y>
+      <y>170</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -142,12 +142,12 @@
     </property>
     <item>
      <property name="text">
-      <string>Default</string>
+      <string>Solid</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Solid</string>
+      <string>Dashed</string>
      </property>
     </item>
    </widget>
@@ -393,11 +393,11 @@ QPushButton::Pressed{
      <string> color</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="Edges_Settenings">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>170</y>
+      <x>660</x>
+      <y>290</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -409,17 +409,17 @@ QPushButton::Pressed{
     </property>
     <item>
      <property name="text">
-      <string>None</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
       <string>Circle</string>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Square</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>None</string>
      </property>
     </item>
    </widget>
@@ -1053,13 +1053,51 @@ color:rgb(0, 0, 0);
      <string>S:</string>
     </property>
    </widget>
+   <widget class="QScrollBar" name="ScrollTimer">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>570</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QScrollBar{
+	background-color: rgba(0, 0, 0, 77);
+
+}
+
+QScrollBar::add-line:horizontal {
+      border: none;
+      background: none;
+}
+
+QScrollBar::sub-line:horizontal {
+      border: none;
+      background: none;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <number>30</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
    <zorder>Projection_8</zorder>
    <zorder>openGLWidget</zorder>
    <zorder>pushButton</zorder>
    <zorder>lineEdit</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>comboBox</zorder>
-   <zorder>comboBox_3</zorder>
+   <zorder>Vertex_Settenings</zorder>
    <zorder>Projection_2</zorder>
    <zorder>Projection</zorder>
    <zorder>Vertex_Color</zorder>
@@ -1069,7 +1107,7 @@ color:rgb(0, 0, 0);
    <zorder>Projection_5</zorder>
    <zorder>Edges_Color</zorder>
    <zorder>label_4</zorder>
-   <zorder>comboBox_2</zorder>
+   <zorder>Edges_Settenings</zorder>
    <zorder>Scroll_RotateZ</zorder>
    <zorder>Scroll_ShiftX</zorder>
    <zorder>Scroll_RotateX</zorder>
@@ -1097,6 +1135,7 @@ color:rgb(0, 0, 0);
    <zorder>Scroll_ShiftSize</zorder>
    <zorder>Shift_Size</zorder>
    <zorder>label_9</zorder>
+   <zorder>ScrollTimer</zorder>
   </widget>
  </widget>
  <customwidgets>

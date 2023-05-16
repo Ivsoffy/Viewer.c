@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "glview.h"
 #include "openfiledialog.h"
+#include <QCloseEvent>
 
 //#include <QPainter>
 
@@ -23,6 +24,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private:
+    QColor _colorVertex;
+    QColor _colorEdges;
+    void writeSettings();
+    void readSettings();
 private slots:
     void on_pushButton_clicked();
 
@@ -63,6 +69,12 @@ private slots:
     void on_Scroll_ShiftSize_sliderMoved(int position);
 
     void on_Shift_Size_editingFinished();
+
+    void on_Edges_Settenings_currentIndexChanged(int index);
+
+    void on_Vertex_Settenings_currentIndexChanged(int index);
+
+    void closeEvent (QCloseEvent *event);
 
 private:
     Ui::MainWindow *ui;

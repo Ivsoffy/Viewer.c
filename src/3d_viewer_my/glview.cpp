@@ -1,4 +1,8 @@
 #include "glview.h"
+#include <QTimer>
+#include "gif.h"
+
+#define GL_SILENCE_DEPRECATION
 
 glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->colorBackground.push_back(ColorPallette("Saphire", 0, 1, 0, 0));
@@ -6,7 +10,7 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->colorBackground.push_back(ColorPallette("Black", 0, 0, 0, 0));
 
     this->colorVertex = new ColorPallette("Standart", 0.5, 0.5, 0.5, 0);
-    this->colorEdges = new ColorPallette("Standart", 1, 1, 0.5, 0);
+    this->colorEdges = new ColorPallette("Standart", 1, 0.5, 1, 0);
     currentBackground = new ColorPallette();
     this->shift=0;
     this->filename= "";
@@ -14,6 +18,8 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->size_edges = 5;
     this->size_vertex = 0.5;
     this->count_vector = 0, this->count_surface = 0;
+    pointType=0;
+    VertexType=0;
     setMetrics();
 }
 
@@ -46,7 +52,7 @@ void glView::setMetrics() {
 
 void glView::setEdges(double size) {
     this->size_edges = size;
-     this->update();
+    this->update();
 }
 
 void glView::setVertex(double size) {
@@ -223,26 +229,88 @@ void glView::keyReleaseEvent(QKeyEvent *event) {
         this->shift=0;
 }
 
+void glView::TakePic() {
+     QImage e = this->grabFramebuffer();
+     this->Time->setValue(this->Time->value()+1);
+     e = e.scaled( 640, 480, Qt::KeepAspectRatio);
+//    QPixmap map = grab();
+//    QImage e = map.toImage();
+//    maps.push_back(map);
+    frames.push_back(e);
+       if (frames.size()==30)
+       {
+       timer->stop();
+       SaveGif();
+       }
+}
+
+
+void glView::TakeGif(QString file){
+    this->Time->setValue(0);
+    this->fileGIF=file;
+    timer = new QTimer();
+    timer->setInterval(100);
+    // connect
+    connect(timer, SIGNAL(timeout()), this, SLOT(TakePic()));
+//            this->ui->openGLWidget->TakeGif(filename,&timer);
+    timer->start(100);
+}
+
+void glView::SaveGif() {
+    int width = 640;
+    int height = 480;
+    uint32_t delay = 60 / 10; // fps
+    GifWriter writer;
+//    QString file = "/Users/coriande/Desktop/pixmap/top";
+//    if (!file.isEmpty())
+//        for (int i =0; i< 50; i++)
+//    {
+//            maps[i].save(file+ QString::number(i)+".png");
+//        }
+        GifBegin(&writer, fileGIF.toStdString().c_str(), width, height, delay);
+        for (int i =0; i< 30; i++) {
+//            QByteArray alpha8((char *)frames[i].bits(), frames[i].sizeInBytes());
+//            fprintf(stderr,"END\n");
+
+                     GifWriteFrame(&writer, frames[i].convertToFormat(QImage::Format_Indexed8).
+                                   convertToFormat(QImage::Format_RGBA8888).constBits(), width, height, delay);
+//           GifWriteFrame(&writer, (uint8_t *)alpha8.data(), width, height, delay);
+//            fprintf(stderr,"try\n");
+        }
+        GifEnd(&writer);
+        frames.clear();
+}
+
+
 void glView::paintGL() {
     if (this->count_vector)
   {
-
+        if (this->pointType==0)
       glEnable(GL_POINT_SMOOTH);
+        else glDisable(GL_POINT_SMOOTH);
       glClearColor(this->currentBackground->Red(), this->currentBackground->Green(), this->currentBackground->Blue(), this->currentBackground->Alpha());
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
       //команды отрисовки вершин
-      glColor3f(this->colorEdges->Red(), this->colorEdges->Blue(), this->colorEdges->Green());
-//      glColor3d(1, 1, 0.5);
-      glPointSize(this->size_edges);
-      glBegin(GL_POINTS);
-      for (int i = 0; i < this->count_vector; i++) {
-          glVertex3d(this->current_vectors[i].x, this->current_vectors[i].y, this->current_vectors[i].z);
+      if (this->pointType!=2)
+      {
+          glColor3f(this->colorEdges->Red(), this->colorEdges->Green(), this->colorEdges->Blue());
+          glPointSize(this->size_edges);
+
+          glBegin(GL_POINTS);
+          for (int i = 0; i < this->count_vector; i++) {
+              glVertex3d(this->current_vectors[i].x, this->current_vectors[i].y, this->current_vectors[i].z);
+          }
+          glEnd();
       }
-      glEnd();
+
       //команды отрисовки векторов
-      glColor3f(this->colorVertex->Red(), this->colorVertex->Blue(), this->colorVertex->Green());
-//      glColor3d(0.5, 0.5, 0.5);
+
+      glColor3f(this->colorVertex->Red(), this->colorVertex->Green(), this->colorVertex->Blue());
       glLineWidth(this->size_vertex);
+      glEnable(GL_LINE_STIPPLE);
+      if (VertexType)
+      glLineStipple(2,10);
       for (int i = 0; i < this->count_surface; i++) {
           glBegin(GL_LINE_LOOP);
           for (int j = 0; j < surface[i].number_dot_surface; j++) {

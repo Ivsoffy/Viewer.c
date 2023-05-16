@@ -3,7 +3,7 @@
 
 CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: 3d_viewer_my_autogen/mocs_compilation.cpp \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/share/asan_blacklist.txt \
-  3d_viewer_my_autogen/EWIEGA46WW/moc_mainwindow.cpp \
+  3d_viewer_my_autogen/EWIEGA46WW/moc_glview.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/memory \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/pthread.h \
@@ -164,11 +164,10 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: 3d_view
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sched.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cassert \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/assert.h \
-  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
-  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
-  /usr/local/include/QtWidgets/qtwidgetsglobal.h \
-  /usr/local/include/QtGui/qtguiglobal.h \
+  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.h \
+  /usr/local/lib/QtOpenGLWidgets.framework/Headers/QOpenGLWidget \
+  /usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h \
+  /usr/local/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
   /usr/local/include/QtCore/qglobal.h \
   /usr/local/include/QtCore/qconfig.h \
   /usr/local/include/QtCore/qtcore-config.h \
@@ -199,9 +198,12 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: 3d_view
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/math.h \
   /usr/local/include/QtCore/qversiontagging.h \
+  /usr/local/include/QtWidgets/QWidget \
+  /usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+  /usr/local/include/QtWidgets/qtwidgetsglobal.h \
+  /usr/local/include/QtGui/qtguiglobal.h \
   /usr/local/include/QtGui/qtgui-config.h \
   /usr/local/include/QtWidgets/qtwidgets-config.h \
-  /usr/local/include/QtWidgets/qwidget.h \
   /usr/local/include/QtGui/qwindowdefs.h \
   /usr/local/include/QtCore/qobjectdefs.h \
   /usr/local/include/QtCore/qnamespace.h \
@@ -291,14 +293,6 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: 3d_view
   /usr/local/include/QtGui/qcursor.h \
   /usr/local/include/QtGui/qbitmap.h \
   /usr/local/include/QtGui/qkeysequence.h \
-  /usr/local/include/QtWidgets/qtabwidget.h \
-  /usr/local/include/QtGui/qicon.h \
-  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.h \
-  /usr/local/lib/QtOpenGLWidgets.framework/Headers/QOpenGLWidget \
-  /usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h \
-  /usr/local/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
-  /usr/local/include/QtWidgets/QWidget \
-  /usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
   /usr/local/include/QtGui/QSurfaceFormat \
   /usr/local/lib/QtGui.framework/Headers/qsurfaceformat.h \
   /usr/local/include/QtGui/qopengl.h \
@@ -349,11 +343,22 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: 3d_view
   /usr/local/lib/QtWidgets.framework/Headers/QDoubleSpinBox \
   /usr/local/lib/QtWidgets.framework/Headers/qspinbox.h \
   /usr/local/include/QtWidgets/qabstractspinbox.h \
+  /usr/local/include/QtWidgets/qwidget.h \
   /usr/local/include/QtGui/qvalidator.h \
   /usr/local/include/QtCore/qregularexpression.h \
   /usr/local/include/QtCore/qlocale.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QScrollBar \
+  /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h \
+  /usr/local/include/QtWidgets/qabstractslider.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h \
+  3d_viewer_my_autogen/EWIEGA46WW/moc_mainwindow.cpp \
+  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
+  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /usr/local/include/QtWidgets/qtabwidget.h \
+  /usr/local/include/QtGui/qicon.h \
+  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.h \
   /usr/local/include/QtWidgets/QFileDialog.h \
   /usr/local/include/QtCore/qdir.h \
@@ -420,7 +425,8 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: 3d_view
   /usr/local/include/QtCore/qfileinfo.h \
   /usr/local/include/QtCore/qdatetime.h \
   /usr/local/include/QtCore/qcalendar.h \
-  /usr/local/include/QtWidgets/qdialog.h
+  /usr/local/include/QtWidgets/qdialog.h \
+  /usr/local/lib/QtGui.framework/Headers/QCloseEvent
 
 CMakeFiles/3d_viewer_my.dir/affins.c.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/share/asan_blacklist.txt \
@@ -805,8 +811,17 @@ CMakeFiles/3d_viewer_my.dir/glview.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3
   /usr/local/include/QtGui/qvalidator.h \
   /usr/local/include/QtCore/qregularexpression.h \
   /usr/local/include/QtCore/qlocale.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QScrollBar \
+  /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h \
+  /usr/local/include/QtWidgets/qabstractslider.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h \
-  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h
+  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h \
+  /usr/local/lib/QtCore.framework/Headers/QTimer \
+  /usr/local/lib/QtCore.framework/Headers/qtimer.h \
+  /usr/local/include/QtCore/qbasictimer.h \
+  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/gif.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h
 
 CMakeFiles/3d_viewer_my.dir/main.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/share/asan_blacklist.txt \
@@ -1158,6 +1173,9 @@ CMakeFiles/3d_viewer_my.dir/main.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3DV
   /usr/local/include/QtGui/qvalidator.h \
   /usr/local/include/QtCore/qregularexpression.h \
   /usr/local/include/QtCore/qlocale.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QScrollBar \
+  /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h \
+  /usr/local/include/QtWidgets/qabstractslider.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.h \
@@ -1227,6 +1245,7 @@ CMakeFiles/3d_viewer_my.dir/main.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3DV
   /usr/local/include/QtCore/qdatetime.h \
   /usr/local/include/QtCore/qcalendar.h \
   /usr/local/include/QtWidgets/qdialog.h \
+  /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
   /usr/local/lib/QtWidgets.framework/Headers/QApplication \
   /usr/local/lib/QtWidgets.framework/Headers/qapplication.h \
   /usr/local/include/QtCore/qcoreapplication.h \
@@ -1586,6 +1605,9 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: /Users/coriande/Desktop/3d_viewer/
   /usr/local/include/QtGui/qvalidator.h \
   /usr/local/include/QtCore/qregularexpression.h \
   /usr/local/include/QtCore/qlocale.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QScrollBar \
+  /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h \
+  /usr/local/include/QtWidgets/qabstractslider.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h \
   /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.h \
@@ -1655,6 +1677,7 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: /Users/coriande/Desktop/3d_viewer/
   /usr/local/include/QtCore/qdatetime.h \
   /usr/local/include/QtCore/qcalendar.h \
   /usr/local/include/QtWidgets/qdialog.h \
+  /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
   3d_viewer_my_autogen/include/ui_mainwindow.h \
   /usr/local/include/QtCore/QVariant \
   /usr/local/lib/QtCore.framework/Headers/qvariant.h \
@@ -1671,7 +1694,6 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: /Users/coriande/Desktop/3d_viewer/
   /usr/local/include/QtWidgets/qabstractitemdelegate.h \
   /usr/local/include/QtWidgets/qstyleoption.h \
   /usr/local/include/QtWidgets/qslider.h \
-  /usr/local/include/QtWidgets/qabstractslider.h \
   /usr/local/include/QtWidgets/qstyle.h \
   /usr/local/include/QtWidgets/qtabbar.h \
   /usr/local/include/QtWidgets/qrubberband.h \
@@ -1693,9 +1715,12 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: /Users/coriande/Desktop/3d_viewer/
   /usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h \
   /usr/local/include/QtWidgets/qabstractbutton.h \
   /usr/local/include/QtWidgets/QScrollBar \
-  /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h \
   /usr/local/lib/QtWidgets.framework/Headers/QColorDialog \
-  /usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h
+  /usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMessageBox \
+  /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h \
+  /usr/local/lib/QtCore.framework/Headers/QSettings \
+  /usr/local/lib/QtCore.framework/Headers/qsettings.h
 
 CMakeFiles/3d_viewer_my.dir/obj_reader.c.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/share/asan_blacklist.txt \
@@ -2144,7 +2169,13 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp:
 
+/usr/local/lib/QtCore.framework/Headers/qsettings.h:
+
+/usr/local/lib/QtCore.framework/Headers/QSettings:
+
 /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c:
+
+/usr/local/lib/QtWidgets.framework/Headers/QMessageBox:
 
 /usr/local/lib/QtWidgets.framework/Headers/QColorDialog:
 
@@ -2174,8 +2205,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtWidgets/qframe.h:
 
-/usr/local/include/QtWidgets/qabstractslider.h:
-
 /usr/local/include/QtWidgets/qstyleoption.h:
 
 /usr/local/include/QtWidgets/qabstractitemdelegate.h:
@@ -2202,11 +2231,17 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp:
 
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h:
+
 /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp:
+
+/usr/local/lib/QtGui.framework/Headers/QCloseEvent:
 
 /usr/local/include/QtCore/qdatetime.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/istream:
 
@@ -2229,6 +2264,10 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_nlink_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino64_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_addr_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdlib.h:
 
@@ -2270,11 +2309,27 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qdir.h:
 
+/usr/local/include/QtGui/qicon.h:
+
+/usr/local/include/QtWidgets/qtabwidget.h:
+
+3d_viewer_my_autogen/EWIEGA46WW/moc_mainwindow.cpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_nl_item.h:
 
 /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino_t.h:
+/usr/local/include/QtCore/qtextstream.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/QScrollBar:
+
+/usr/local/include/QtWidgets/QApplication:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_port_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/string.h:
+
+/usr/local/include/QtWidgets/qwidget.h:
 
 /usr/local/lib/QtGui.framework/Headers/QKeyEvent:
 
@@ -2332,8 +2387,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qstringconverter.h:
 
-/usr/local/include/QtCore/qtextstream.h:
-
 /usr/local/include/QtCore/qdebug.h:
 
 /usr/local/include/QtCore/qcalendar.h:
@@ -2374,30 +2427,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glext.h:
 
-/usr/local/include/QtWidgets/qdialog.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_set.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference:
-
-/usr/local/include/QtGui/qscreen.h:
-
-/usr/local/include/QtCore/qcontiguouscache.h:
-
-/usr/local/include/QtWidgets/QWidget:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/__wctype.h:
-
-/usr/local/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h:
-
-/usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h:
-
-/usr/local/include/QtGui/qicon.h:
-
-/usr/local/include/QtWidgets/qtabwidget.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/wctype.h:
 
 /usr/local/include/QtGui/qkeysequence.h:
@@ -2432,8 +2461,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qpoint.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_addr_t.h:
-
 /usr/local/include/QtCore/qstringalgorithms.h:
 
 /usr/local/include/QtGui/qpaintdevice.h:
@@ -2455,6 +2482,8 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_symbol_aliasing.h:
 
 /usr/local/include/QtWidgets/QFileDialog.h:
+
+/usr/local/include/QtCore/qbasictimer.h:
 
 /usr/local/include/QtGui/qopengl.h:
 
@@ -2506,6 +2535,16 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qstringliteral.h:
 
+/usr/local/include/QtWidgets/qdialog.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_set.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h:
+
+/usr/local/include/QtGui/qscreen.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_clock_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cwctype:
@@ -2530,6 +2569,8 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qpair.h:
 
+/usr/local/lib/QtCore.framework/Headers/qtimer.h:
+
 /usr/local/include/QtGui/qimage.h:
 
 /usr/local/include/QtCore/qarraydata.h:
@@ -2539,6 +2580,8 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip:
 
 /usr/local/include/QtCore/qobject_impl.h:
+
+/usr/local/include/QtWidgets/qabstractslider.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/machine/types.h:
 
@@ -2558,17 +2601,23 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtGui/qwindowdefs.h:
 
-/usr/local/include/QtWidgets/QApplication:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/string.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_port_t.h:
-
-/usr/local/include/QtWidgets/qwidget.h:
-
 /usr/local/include/QtWidgets/qtwidgets-config.h:
 
 /usr/local/include/QtGui/qtgui-config.h:
+
+/usr/local/include/QtGui/qtguiglobal.h:
+
+/usr/local/include/QtCore/qcontiguouscache.h:
+
+/usr/local/include/QtWidgets/QWidget:
+
+/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/optional:
+
+/usr/local/include/QtCore/qversiontagging.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_intptr_t.h:
 
@@ -2582,6 +2631,8 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qatomic_cxx11.h:
 
+3d_viewer_my_autogen/EWIEGA46WW/moc_glview.cpp:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdarg.h:
 
 /usr/local/include/QtCore/qbytearray.h:
@@ -2593,16 +2644,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/string:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/share/asan_blacklist.txt:
-
-/usr/local/include/QtCore/qversiontagging.h:
-
-/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/optional:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/array:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__undef_macros:
 
@@ -2622,11 +2663,35 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qcompilerdetection.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__debug:
+
+/usr/local/include/QtCore/qglobalstatic.h:
+
+/usr/local/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/__wctype.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_null.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ios:
 
 /usr/local/include/QtCore/qtcore-config.h:
 
-/usr/local/include/QtGui/qtguiglobal.h:
+/usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/array:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_xlocale.h:
+
+/usr/local/lib/QtCore.framework/Headers/QTimer:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/limits:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/appleapiopts.h:
+
+/usr/local/lib/QtOpenGLWidgets.framework/Headers/QOpenGLWidget:
 
 /usr/local/include/QtCore/qobjectdefs.h:
 
@@ -2666,19 +2731,15 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtGui/qpixmap.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_null.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_size_t.h:
 
 /usr/local/include/QtCore/qtypeinfo.h:
 
+/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ctime:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h:
-
-/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_key_t.h:
 
@@ -2702,6 +2763,8 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qbindingstorage.h:
 
+/usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/limits.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/climits:
@@ -2721,10 +2784,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cstring:
 
 /usr/local/include/QtCore/qmath.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/appleapiopts.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/limits:
 
 /usr/local/include/QtCore/qshareddata.h:
 
@@ -2763,10 +2822,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /usr/local/include/QtGui/qeventpoint.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/malloc/_malloc.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_uintmax_t.h:
-
-/usr/local/include/QtWidgets/qtwidgetsglobal.h:
 
 /usr/local/include/QtCore/qmetacontainer.h:
 
@@ -2872,10 +2927,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/machine/signal.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_xlocale.h:
-
-/usr/local/lib/QtOpenGLWidgets.framework/Headers/QOpenGLWidget:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_stdio.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_ctype.h:
@@ -2938,6 +2989,8 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/nl_types.h:
 
+/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/gif.h:
+
 /usr/local/include/QtCore/qstringlist.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/stdio.h:
@@ -2955,12 +3008,6 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/map:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stddef.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__debug:
-
-/usr/local/include/QtCore/qglobalstatic.h:
-
-3d_viewer_my_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int8_t.h:
 
@@ -3048,6 +3095,10 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /usr/local/include/QtCore/qsystemdetection.h:
 
+/usr/local/include/QtWidgets/qtwidgetsglobal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_uintmax_t.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/stdio.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/Availability.h:
@@ -3064,6 +3115,12 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__functional_base:
 
+/usr/local/include/QtGui/qvector2d.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdio.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/exception:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/wait.h:
@@ -3071,9 +3128,3 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_vie
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/pthread.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/wchar.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdio.h:
-
-/usr/local/include/QtGui/qvector2d.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric:

@@ -32,7 +32,7 @@ public:
     QLineEdit *lineEdit;
     QPushButton *pushButton_2;
     QComboBox *comboBox;
-    QComboBox *comboBox_3;
+    QComboBox *Vertex_Settenings;
     QLabel *Projection_2;
     QLabel *Projection;
     QPushButton *Vertex_Color;
@@ -43,7 +43,7 @@ public:
     QPushButton *Edges_Color;
     QLabel *label_4;
     QPushButton *Projection_Color;
-    QComboBox *comboBox_2;
+    QComboBox *Edges_Settenings;
     QScrollBar *Scroll_RotateZ;
     QScrollBar *Scroll_ShiftX;
     QScrollBar *Scroll_RotateX;
@@ -71,6 +71,7 @@ public:
     QScrollBar *Scroll_ShiftSize;
     QDoubleSpinBox *Shift_Size;
     QLabel *label_9;
+    QScrollBar *ScrollTimer;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -120,12 +121,12 @@ public:
         comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setGeometry(QRect(650, 70, 201, 51));
-        comboBox_3 = new QComboBox(centralwidget);
-        comboBox_3->addItem(QString());
-        comboBox_3->addItem(QString());
-        comboBox_3->setObjectName(QString::fromUtf8("comboBox_3"));
-        comboBox_3->setGeometry(QRect(650, 290, 201, 31));
-        comboBox_3->setStyleSheet(QString::fromUtf8("QComboBox{\n"
+        Vertex_Settenings = new QComboBox(centralwidget);
+        Vertex_Settenings->addItem(QString());
+        Vertex_Settenings->addItem(QString());
+        Vertex_Settenings->setObjectName(QString::fromUtf8("Vertex_Settenings"));
+        Vertex_Settenings->setGeometry(QRect(650, 170, 201, 31));
+        Vertex_Settenings->setStyleSheet(QString::fromUtf8("QComboBox{\n"
 "  color: #364330;\n"
 "}"));
         Projection_2 = new QLabel(centralwidget);
@@ -243,13 +244,13 @@ public:
 "	background-color: rgb(255, 255, 255);\n"
 "}\n"
 ""));
-        comboBox_2 = new QComboBox(centralwidget);
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
-        comboBox_2->setGeometry(QRect(650, 170, 201, 31));
-        comboBox_2->setStyleSheet(QString::fromUtf8("QComboBox{\n"
+        Edges_Settenings = new QComboBox(centralwidget);
+        Edges_Settenings->addItem(QString());
+        Edges_Settenings->addItem(QString());
+        Edges_Settenings->addItem(QString());
+        Edges_Settenings->setObjectName(QString::fromUtf8("Edges_Settenings"));
+        Edges_Settenings->setGeometry(QRect(660, 290, 201, 31));
+        Edges_Settenings->setStyleSheet(QString::fromUtf8("QComboBox{\n"
 "  color: #364330;\n"
 "}"));
         Scroll_RotateZ = new QScrollBar(centralwidget);
@@ -511,6 +512,27 @@ public:
         label_9->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "  color: #364330;\n"
 "}"));
+        ScrollTimer = new QScrollBar(centralwidget);
+        ScrollTimer->setObjectName(QString::fromUtf8("ScrollTimer"));
+        ScrollTimer->setEnabled(false);
+        ScrollTimer->setGeometry(QRect(420, 570, 211, 20));
+        ScrollTimer->setStyleSheet(QString::fromUtf8("QScrollBar{\n"
+"	background-color: rgba(0, 0, 0, 77);\n"
+"\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:horizontal {\n"
+"      border: none;\n"
+"      background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:horizontal {\n"
+"      border: none;\n"
+"      background: none;\n"
+"}"));
+        ScrollTimer->setMinimum(0);
+        ScrollTimer->setMaximum(30);
+        ScrollTimer->setOrientation(Qt::Horizontal);
         MainWindow->setCentralWidget(centralwidget);
         Projection_8->raise();
         openGLWidget->raise();
@@ -518,7 +540,7 @@ public:
         lineEdit->raise();
         pushButton_2->raise();
         comboBox->raise();
-        comboBox_3->raise();
+        Vertex_Settenings->raise();
         Projection_2->raise();
         Projection->raise();
         Vertex_Color->raise();
@@ -528,7 +550,7 @@ public:
         Projection_5->raise();
         Edges_Color->raise();
         label_4->raise();
-        comboBox_2->raise();
+        Edges_Settenings->raise();
         Scroll_RotateZ->raise();
         Scroll_ShiftX->raise();
         Scroll_RotateX->raise();
@@ -556,6 +578,7 @@ public:
         Scroll_ShiftSize->raise();
         Shift_Size->raise();
         label_9->raise();
+        ScrollTimer->raise();
 
         retranslateUi(MainWindow);
 
@@ -577,8 +600,8 @@ public:
         comboBox->setStyleSheet(QCoreApplication::translate("MainWindow", "QComboBox{\n"
 "  color: #364330;\n"
 "}", nullptr));
-        comboBox_3->setItemText(0, QCoreApplication::translate("MainWindow", "Default", nullptr));
-        comboBox_3->setItemText(1, QCoreApplication::translate("MainWindow", "Solid", nullptr));
+        Vertex_Settenings->setItemText(0, QCoreApplication::translate("MainWindow", "Solid", nullptr));
+        Vertex_Settenings->setItemText(1, QCoreApplication::translate("MainWindow", "Dashed", nullptr));
 
         Projection_2->setText(QCoreApplication::translate("MainWindow", "Vertexes", nullptr));
         Projection->setText(QCoreApplication::translate("MainWindow", "Projection", nullptr));
@@ -589,9 +612,9 @@ public:
         Edges_Color->setText(QCoreApplication::translate("MainWindow", "\302\240color", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "X:", nullptr));
         Projection_Color->setText(QCoreApplication::translate("MainWindow", "\302\240color", nullptr));
-        comboBox_2->setItemText(0, QCoreApplication::translate("MainWindow", "None", nullptr));
-        comboBox_2->setItemText(1, QCoreApplication::translate("MainWindow", "Circle", nullptr));
-        comboBox_2->setItemText(2, QCoreApplication::translate("MainWindow", "Square", nullptr));
+        Edges_Settenings->setItemText(0, QCoreApplication::translate("MainWindow", "Circle", nullptr));
+        Edges_Settenings->setItemText(1, QCoreApplication::translate("MainWindow", "Square", nullptr));
+        Edges_Settenings->setItemText(2, QCoreApplication::translate("MainWindow", "None", nullptr));
 
         Projection_7->setText(QCoreApplication::translate("MainWindow", "Width", nullptr));
         Projection_4->setText(QCoreApplication::translate("MainWindow", "Shift", nullptr));

@@ -31,7 +31,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 37,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
@@ -61,7 +61,7 @@
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 59,
+				"line" : 60,
 				"parent" : 0
 			},
 			{
@@ -454,7 +454,8 @@
 				8,
 				10,
 				12,
-				13
+				13,
+				14
 			]
 		},
 		{
@@ -538,6 +539,11 @@
 		{
 			"backtrace" : 4,
 			"path" : "openfiledialog.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "gif.h",
 			"sourceGroupIndex" : 1
 		},
 		{

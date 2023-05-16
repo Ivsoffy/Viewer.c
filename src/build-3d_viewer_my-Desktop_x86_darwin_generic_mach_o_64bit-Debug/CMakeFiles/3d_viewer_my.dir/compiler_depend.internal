@@ -4,7 +4,7 @@
 CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/mocs_compilation.cpp
  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/share/asan_blacklist.txt
- /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/EWIEGA46WW/moc_mainwindow.cpp
+ /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/EWIEGA46WW/moc_glview.cpp
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/memory
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__config
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/pthread.h
@@ -165,11 +165,10 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sched.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cassert
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/assert.h
- /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.h
- /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
- /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
- /usr/local/include/QtWidgets/qtwidgetsglobal.h
- /usr/local/include/QtGui/qtguiglobal.h
+ /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.h
+ /usr/local/lib/QtOpenGLWidgets.framework/Headers/QOpenGLWidget
+ /usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h
+ /usr/local/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h
  /usr/local/include/QtCore/qglobal.h
  /usr/local/include/QtCore/qconfig.h
  /usr/local/include/QtCore/qtcore-config.h
@@ -200,9 +199,12 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/math.h
  /usr/local/include/QtCore/qversiontagging.h
+ /usr/local/include/QtWidgets/QWidget
+ /usr/local/lib/QtWidgets.framework/Headers/qwidget.h
+ /usr/local/include/QtWidgets/qtwidgetsglobal.h
+ /usr/local/include/QtGui/qtguiglobal.h
  /usr/local/include/QtGui/qtgui-config.h
  /usr/local/include/QtWidgets/qtwidgets-config.h
- /usr/local/include/QtWidgets/qwidget.h
  /usr/local/include/QtGui/qwindowdefs.h
  /usr/local/include/QtCore/qobjectdefs.h
  /usr/local/include/QtCore/qnamespace.h
@@ -292,14 +294,6 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o
  /usr/local/include/QtGui/qcursor.h
  /usr/local/include/QtGui/qbitmap.h
  /usr/local/include/QtGui/qkeysequence.h
- /usr/local/include/QtWidgets/qtabwidget.h
- /usr/local/include/QtGui/qicon.h
- /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.h
- /usr/local/lib/QtOpenGLWidgets.framework/Headers/QOpenGLWidget
- /usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h
- /usr/local/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h
- /usr/local/include/QtWidgets/QWidget
- /usr/local/lib/QtWidgets.framework/Headers/qwidget.h
  /usr/local/include/QtGui/QSurfaceFormat
  /usr/local/lib/QtGui.framework/Headers/qsurfaceformat.h
  /usr/local/include/QtGui/qopengl.h
@@ -350,11 +344,22 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o
  /usr/local/lib/QtWidgets.framework/Headers/QDoubleSpinBox
  /usr/local/lib/QtWidgets.framework/Headers/qspinbox.h
  /usr/local/include/QtWidgets/qabstractspinbox.h
+ /usr/local/include/QtWidgets/qwidget.h
  /usr/local/include/QtGui/qvalidator.h
  /usr/local/include/QtCore/qregularexpression.h
  /usr/local/include/QtCore/qlocale.h
+ /usr/local/lib/QtWidgets.framework/Headers/QScrollBar
+ /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h
+ /usr/local/include/QtWidgets/qabstractslider.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h
+ /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/EWIEGA46WW/moc_mainwindow.cpp
+ /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
+ /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
+ /usr/local/include/QtWidgets/qtabwidget.h
+ /usr/local/include/QtGui/qicon.h
+ /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.h
  /usr/local/include/QtWidgets/QFileDialog.h
  /usr/local/include/QtCore/qdir.h
@@ -422,6 +427,7 @@ CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o
  /usr/local/include/QtCore/qdatetime.h
  /usr/local/include/QtCore/qcalendar.h
  /usr/local/include/QtWidgets/qdialog.h
+ /usr/local/lib/QtGui.framework/Headers/QCloseEvent
 
 CMakeFiles/3d_viewer_my.dir/affins.c.o
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c
@@ -808,8 +814,17 @@ CMakeFiles/3d_viewer_my.dir/glview.cpp.o
  /usr/local/include/QtGui/qvalidator.h
  /usr/local/include/QtCore/qregularexpression.h
  /usr/local/include/QtCore/qlocale.h
+ /usr/local/lib/QtWidgets.framework/Headers/QScrollBar
+ /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h
+ /usr/local/include/QtWidgets/qabstractslider.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h
+ /usr/local/lib/QtCore.framework/Headers/QTimer
+ /usr/local/lib/QtCore.framework/Headers/qtimer.h
+ /usr/local/include/QtCore/qbasictimer.h
+ /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/gif.h
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h
 
 CMakeFiles/3d_viewer_my.dir/main.cpp.o
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp
@@ -1162,6 +1177,9 @@ CMakeFiles/3d_viewer_my.dir/main.cpp.o
  /usr/local/include/QtGui/qvalidator.h
  /usr/local/include/QtCore/qregularexpression.h
  /usr/local/include/QtCore/qlocale.h
+ /usr/local/lib/QtWidgets.framework/Headers/QScrollBar
+ /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h
+ /usr/local/include/QtWidgets/qabstractslider.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.h
@@ -1231,6 +1249,7 @@ CMakeFiles/3d_viewer_my.dir/main.cpp.o
  /usr/local/include/QtCore/qdatetime.h
  /usr/local/include/QtCore/qcalendar.h
  /usr/local/include/QtWidgets/qdialog.h
+ /usr/local/lib/QtGui.framework/Headers/QCloseEvent
  /usr/local/lib/QtWidgets.framework/Headers/QApplication
  /usr/local/lib/QtWidgets.framework/Headers/qapplication.h
  /usr/local/include/QtCore/qcoreapplication.h
@@ -1591,6 +1610,9 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o
  /usr/local/include/QtGui/qvalidator.h
  /usr/local/include/QtCore/qregularexpression.h
  /usr/local/include/QtCore/qlocale.h
+ /usr/local/lib/QtWidgets.framework/Headers/QScrollBar
+ /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h
+ /usr/local/include/QtWidgets/qabstractslider.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.h
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.h
@@ -1660,6 +1682,7 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o
  /usr/local/include/QtCore/qdatetime.h
  /usr/local/include/QtCore/qcalendar.h
  /usr/local/include/QtWidgets/qdialog.h
+ /usr/local/lib/QtGui.framework/Headers/QCloseEvent
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/include/ui_mainwindow.h
  /usr/local/include/QtCore/QVariant
  /usr/local/lib/QtCore.framework/Headers/qvariant.h
@@ -1676,7 +1699,6 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o
  /usr/local/include/QtWidgets/qabstractitemdelegate.h
  /usr/local/include/QtWidgets/qstyleoption.h
  /usr/local/include/QtWidgets/qslider.h
- /usr/local/include/QtWidgets/qabstractslider.h
  /usr/local/include/QtWidgets/qstyle.h
  /usr/local/include/QtWidgets/qtabbar.h
  /usr/local/include/QtWidgets/qrubberband.h
@@ -1698,9 +1720,12 @@ CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o
  /usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h
  /usr/local/include/QtWidgets/qabstractbutton.h
  /usr/local/include/QtWidgets/QScrollBar
- /usr/local/lib/QtWidgets.framework/Headers/qscrollbar.h
  /usr/local/lib/QtWidgets.framework/Headers/QColorDialog
  /usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMessageBox
+ /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h
+ /usr/local/lib/QtCore.framework/Headers/QSettings
+ /usr/local/lib/QtCore.framework/Headers/qsettings.h
 
 CMakeFiles/3d_viewer_my.dir/obj_reader.c.o
  /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c

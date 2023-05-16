@@ -31,6 +31,7 @@ set(PROJECT_SOURCES
         affins.h
         openfiledialog.cpp
         openfiledialog.h
+        gif.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

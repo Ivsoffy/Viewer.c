@@ -8,6 +8,8 @@
 #include <QWheelEvent>
 #include <QKeyEvent>
 #include <QDoubleSpinBox>
+#include <QScrollBar>
+
 
 extern "C" {
 #include "obj_reader.h"
@@ -64,6 +66,7 @@ public:
 
 class glView : public QOpenGLWidget
 {
+        Q_OBJECT
 private:
     void setMetrics();
     QString filename;
@@ -86,7 +89,12 @@ private:
     QDoubleSpinBox* Shift_Z;
     QDoubleSpinBox* Shift_Size;
     difference diff;
+    QList<QImage> frames;
+    QTimer* timer;
+    QString fileGIF;
 public:
+    int pointType;
+    int VertexType;
     glView(QWidget*parent=nullptr);
     void initializeGL() override;
     void resizeGL(int w, int h) override;
@@ -108,6 +116,11 @@ public:
     void SetScaling(double);
     void SetShift_XYZ(QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*);
     void recalc();
+    void TakeGif(QString);
+    void SaveGif();
+    QScrollBar* Time;
+private slots:
+    void TakePic();
 protected:
     void wheelEvent(QWheelEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
