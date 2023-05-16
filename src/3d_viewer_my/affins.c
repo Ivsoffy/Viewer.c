@@ -11,25 +11,27 @@ void recalculation(vector* vectors, int count_vector, vector* result, difference
         result[i].y = (vectors[i].y + diff.y_move)* diff.size;
         result[i].z = (vectors[i].z + diff.z_move)* diff.size;
 
-         buf_x = result[i].x;
-         buf_y = result[i].y;
-         buf_z = result[i].z;
+        buf_x = result[i].x;
+        buf_y = result[i].y;
+        buf_z = result[i].z;
 
         result[i].y = buf_y * cos(diff.x_alpha) + buf_z * sin(diff.x_alpha);
         buf_y = result[i].y;
-        result[i].y = -buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
-        buf_y = result[i].y;
-
         result[i].z = -buf_y * sin(diff.x_alpha) + buf_z * cos(diff.x_alpha);
         buf_z = result[i].z;
+
+        result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
+        buf_x = result[i].x;
         result[i].z = -buf_x * sin(diff.y_alpha) + buf_z * cos(diff.y_alpha);
         buf_z = result[i].z;
 
+        result[i].y = -buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
+        buf_y = result[i].y;
         result[i].x = buf_x * cos(diff.z_alpha) + buf_y * sin(diff.z_alpha);
         buf_x = result[i].x;
-        result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
-        buf_x = result[i].x;
+
     }
+//    printf("<<<<<%lf %lf\n", result[0].x, vectors[0].x);
 }
 
 vector* move_xyz(vector* vectors, int count_vector, double x_move,//

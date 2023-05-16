@@ -68,6 +68,9 @@ public:
     QDoubleSpinBox *Shift_X;
     QDoubleSpinBox *Shift_Y;
     QDoubleSpinBox *Shift_Z;
+    QScrollBar *Scroll_ShiftSize;
+    QDoubleSpinBox *Shift_Size;
+    QLabel *label_9;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -298,7 +301,7 @@ public:
         Projection_7->setAlignment(Qt::AlignCenter);
         Projection_4 = new QLabel(centralwidget);
         Projection_4->setObjectName(QString::fromUtf8("Projection_4"));
-        Projection_4->setGeometry(QRect(660, 390, 251, 31));
+        Projection_4->setGeometry(QRect(660, 360, 251, 31));
         Projection_4->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "  qproperty-alignment: 'AlignVCenter | AlignRight';\n"
 "  border: 1px solid #364330;\n"
@@ -406,7 +409,7 @@ public:
 "}"));
         Projection_8 = new QLabel(centralwidget);
         Projection_8->setObjectName(QString::fromUtf8("Projection_8"));
-        Projection_8->setGeometry(QRect(660, 390, 251, 271));
+        Projection_8->setGeometry(QRect(660, 360, 251, 301));
         Projection_8->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "  qproperty-alignment: 'AlignVCenter | AlignRight';\n"
 "  border: 1px solid #364330;\n"
@@ -471,7 +474,7 @@ public:
         Shift_Y->setSingleStep(0.100000000000000);
         Shift_Z = new QDoubleSpinBox(centralwidget);
         Shift_Z->setObjectName(QString::fromUtf8("Shift_Z"));
-        Shift_Z->setEnabled(false);
+        Shift_Z->setEnabled(true);
         Shift_Z->setGeometry(QRect(690, 494, 41, 20));
         Shift_Z->setStyleSheet(QString::fromUtf8("QDoubleSpinBox{\n"
 "	background-color : #c7ccb9;\n"
@@ -483,6 +486,31 @@ public:
         Shift_Z->setButtonSymbols(QAbstractSpinBox::NoButtons);
         Shift_Z->setMinimum(-99.000000000000000);
         Shift_Z->setSingleStep(0.100000000000000);
+        Scroll_ShiftSize = new QScrollBar(centralwidget);
+        Scroll_ShiftSize->setObjectName(QString::fromUtf8("Scroll_ShiftSize"));
+        Scroll_ShiftSize->setGeometry(QRect(740, 400, 161, 20));
+        Scroll_ShiftSize->setStyleSheet(QString::fromUtf8(""));
+        Scroll_ShiftSize->setMinimum(0);
+        Scroll_ShiftSize->setOrientation(Qt::Horizontal);
+        Shift_Size = new QDoubleSpinBox(centralwidget);
+        Shift_Size->setObjectName(QString::fromUtf8("Shift_Size"));
+        Shift_Size->setGeometry(QRect(690, 400, 41, 21));
+        Shift_Size->setStyleSheet(QString::fromUtf8("QDoubleSpinBox{\n"
+"	background-color : #c7ccb9;\n"
+"color:rgb(0, 0, 0);\n"
+"}"));
+        Shift_Size->setFrame(true);
+        Shift_Size->setReadOnly(false);
+        Shift_Size->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        Shift_Size->setMinimum(0.000000000000000);
+        Shift_Size->setSingleStep(0.100000000000000);
+        Shift_Size->setValue(1.000000000000000);
+        label_9 = new QLabel(centralwidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(670, 400, 31, 31));
+        label_9->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"  color: #364330;\n"
+"}"));
         MainWindow->setCentralWidget(centralwidget);
         Projection_8->raise();
         openGLWidget->raise();
@@ -525,6 +553,9 @@ public:
         Shift_X->raise();
         Shift_Y->raise();
         Shift_Z->raise();
+        Scroll_ShiftSize->raise();
+        Shift_Size->raise();
+        label_9->raise();
 
         retranslateUi(MainWindow);
 
@@ -576,6 +607,7 @@ public:
         Projection_8->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "Vectors = ", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Surface=", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "S:", nullptr));
     } // retranslateUi
 
 };

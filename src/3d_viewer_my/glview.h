@@ -36,6 +36,13 @@ public:
         this->_alpha = 0;
         this->_name = "Saphire";
     }
+    void SetPallette(QColor color){
+        this->_red=color.redF();
+        this->_blue=color.blueF();
+        this->_green=color.greenF();
+        this->_alpha=color.alphaF();
+    }
+
     QString Name() {
         return _name;
     }
@@ -52,9 +59,6 @@ public:
         return _alpha;
     }
 
-    bool Compare(QColor color){
-        return color.alphaF()==_alpha && color.redF()==_red && color.blueF()==_blue && color.greenF()==_green ? 1 : 0;
-    }
 
 };
 
@@ -68,12 +72,9 @@ private:
     surface_dot *surface;
     QList<ColorPallette> colorBackground;
     ColorPallette* currentBackground;
-    double scale;
+    ColorPallette* colorVertex;
+     ColorPallette* colorEdges;
     double speed;
-    double x;
-    double y;
-    double move_x;
-    double move_y;
     double position_x;
     double position_y;
     bool shift;
@@ -83,8 +84,9 @@ private:
     QDoubleSpinBox* Shift_X;
     QDoubleSpinBox* Shift_Y;
     QDoubleSpinBox* Shift_Z;
-public:
+    QDoubleSpinBox* Shift_Size;
     difference diff;
+public:
     glView(QWidget*parent=nullptr);
     void initializeGL() override;
     void resizeGL(int w, int h) override;
@@ -94,6 +96,7 @@ public:
     int GetSurface();
     void setColor(QString);
     void AddColor(QColor, QString);
+    void AddColorModel(QColor, QString);
     void setEdges(double);
     void setVertex(double);
     void SetShift_Z(double);
@@ -102,7 +105,8 @@ public:
     void SetRotate_X(double);
     void SetRotate_Y(double);
     void SetRotate_Z(double);
-    void SetShift_XYZ(QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*);
+    void SetScaling(double);
+    void SetShift_XYZ(QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*);
     void recalc();
 protected:
     void wheelEvent(QWheelEvent *event) override;

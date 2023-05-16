@@ -4,6 +4,9 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->colorBackground.push_back(ColorPallette("Saphire", 0, 1, 0, 0));
     this->colorBackground.push_back(ColorPallette("White", 255, 255, 255, 0));
     this->colorBackground.push_back(ColorPallette("Black", 0, 0, 0, 0));
+
+    this->colorVertex = new ColorPallette("Standart", 0.5, 0.5, 0.5, 0);
+    this->colorEdges = new ColorPallette("Standart", 1, 1, 0.5, 0);
     currentBackground = new ColorPallette();
     this->shift=0;
     this->filename= "";
@@ -17,24 +20,27 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
 void glView::initializeGL() {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(-4, 4, 4, -4, -4, 4);
+  glOrtho(-4, 4, 4, -4, -100, 100);
 }
 
-void glView::SetShift_XYZ(QDoubleSpinBox* X, QDoubleSpinBox* Y, QDoubleSpinBox* Z) {
+void glView::SetShift_XYZ(QDoubleSpinBox* X, QDoubleSpinBox* Y, QDoubleSpinBox* Z, QDoubleSpinBox* Size) {
    this->Shift_X = X;
     this->Shift_Y = Y;
     this->Shift_Z = Z;
+    this->Shift_Size = Size;
 }
 
 void glView::setMetrics() {
-    this->scale = 1;
-    this->x=0;
-    this->y=0;
     this->shift=0;
-    this->move_x=0;
-    this->move_y=0;
     this->position_x =0;
     this->position_y=0;
+    diff.size=1;
+    diff.x_move=0;
+    diff.y_move=0;
+    diff.z_move=0;
+    diff.x_alpha=0;
+    diff.y_alpha=0;
+    diff.z_alpha=0;
 }
 
 
@@ -42,6 +48,7 @@ void glView::setEdges(double size) {
     this->size_edges = size;
      this->update();
 }
+
 void glView::setVertex(double size) {
     this->size_vertex = size;
      this->update();
@@ -58,6 +65,14 @@ void glView::setColor(QString color) {
 void glView::AddColor(QColor color, QString Colorname) {
     this->colorBackground.push_back(ColorPallette(Colorname, color.redF(), color.blueF(), color.greenF(), color.alphaF()));
     *currentBackground = colorBackground.at(this->colorBackground.size()-1);
+}
+
+void glView::AddColorModel(QColor color, QString type){
+   if (type=="vertex")
+       this->colorVertex->SetPallette(color);
+   else if (type=="edges")
+       this->colorEdges->SetPallette(color);
+   this->update();
 }
 
 
@@ -84,53 +99,88 @@ void glView::setFilename(QString filename) {
              this->current_vectors[j].y=this->vectors[j].y;
              this->current_vectors[j].z=this->vectors[j].z;
          }
+//            printf("%lf %lf\n", this->vectors[0].x, this->current_vectors[0].x);
          this->filename=filename;
          setMetrics();
      }
 }
 
+void glView::recalc() {
+   recalculation(this->vectors, this->count_vector, this->current_vectors, diff);
+//   printf("%lf %lf\n", this->vectors[0].x, this->current_vectors[0].x);
+   this->update();
+}
+
+void glView::SetScaling(double size) {
+    this->diff.size = size;
+//    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по z
+    this->Shift_Size->setValue(size);
+//    this->update();
+    this->recalc();
+}
+
 void glView::SetShift_Z(double Z) {
-    this->scale=Z;
-    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по z
+//    this->scale=Z;
+    this->diff.z_move= Z;
+//    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по z
     this->Shift_Z->setValue(Z);
-    this->update();
+//    this->update();
+    this->recalc();
 }
 
 void glView::SetShift_X(double X) {
-    this->move_x=X;
-    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x
-    this->Shift_X->setValue(this->move_x);
-    this->update();
+//    this->move_x=X;
+    this->diff.x_move=X;
+
+//    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x
+
+    this->Shift_X->setValue(this->diff.x_move);
+//    this->update();
+    this->recalc();
 }
 void glView::SetShift_Y(double Y){
-    this->move_y=Y;
-    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по  y
-    this->Shift_Y->setValue(this->move_y);
-     this->update();
+//    this->move_y=Y;
+    this->diff.y_move=Y;
+//    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по  y
+    this->Shift_Y->setValue(this->diff.y_move);
+//     this->update();
+    this->recalc();
 }
 
 void glView::SetRotate_X(double X) {
-    this->x=X;
-    this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
-    this->update();
+//    this->x=X;
+    this->diff.x_alpha=X;
+//    this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
+    // add spinbox
+//    this->update();
+      this->recalc();
 }
 
 void glView::SetRotate_Y(double Y) {
-    this->y=Y;
-    this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
-    this->update();
+//    this->y=Y;
+        this->diff.y_alpha=Y;
+//    this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
+    // add spinbox
+//    this->update();
+    this->recalc();
 }
 
 void glView::SetRotate_Z(double Z) {
-    this->current_vectors = rotation_z(this->vectors, this->count_vector, Z, this->current_vectors); // поворот по z
-    this->update();
+    this->diff.z_alpha=Z;
+//    this->current_vectors = rotation_z(this->vectors, this->count_vector, Z, this->current_vectors); // поворот по z
+//    this->update();
+    //add spinbox
+    this->recalc();
 }
 
 void glView::wheelEvent(QWheelEvent *event) {
     if (event->position().x()>0 && event->position().y()>0)
     {
-        this->scale+=(double)event->angleDelta().y()/speed;
-        this->SetShift_Z(this->scale);
+//        this->scale+=(double)event->angleDelta().y()/speed;
+        this->diff.size+=(double)event->angleDelta().y()/speed;
+        if (diff.size<0) diff.size=0;
+//        this->SetShift_Z(this->scale);
+        this->SetScaling(this->diff.size);
     }
 }
 
@@ -142,20 +192,25 @@ void glView::mousePressEvent(QMouseEvent *event) {
 void glView::mouseMoveEvent(QMouseEvent *event){
     if (!shift)
     {
-        this->x=event->position().x()/this->size().height();
-        this->y=event->position().y()/this->size().width();
-        this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
-        this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
+//        this->x=event->position().x()/this->size().height();
+        this->diff.x_alpha=event->position().x()/this->size().height();
+//        this->y=event->position().y()/this->size().width();
+        this->diff.y_alpha=event->position().y()/this->size().width();
+//        this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
+//        this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
     } else {
-        this->move_x+= (event->scenePosition().x() - this->position_x)/speed*scale;
-        this->move_y+=  (event->scenePosition().y() - this->position_y)/speed*scale;
-        this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y,
+//        this->move_x+= (event->scenePosition().x() - this->position_x)/speed*scale;
+        this->diff.x_move+=(event->scenePosition().x() - this->position_x)/speed*(this->diff.size*0.5);
+//        this->move_y+=  (event->scenePosition().y() - this->position_y)/speed*scale;
+        this->diff.y_move+= (event->scenePosition().y() - this->position_y)/speed*(this->diff.size*0.5);
+//        this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y,
         this->position_x=event->scenePosition().x();
         this->position_y=event->scenePosition().y();
-        this->Shift_X->setValue(this->move_x);
-        this->Shift_Y->setValue(this->move_y);
+        this->Shift_X->setValue(this->diff.x_move);
+        this->Shift_Y->setValue(this->diff.y_move);
     }
-    this->update();
+//    this->update();
+    this->recalc();
 }
 
 void glView::keyPressEvent(QKeyEvent *event) {
@@ -175,16 +230,18 @@ void glView::paintGL() {
       glEnable(GL_POINT_SMOOTH);
       glClearColor(this->currentBackground->Red(), this->currentBackground->Green(), this->currentBackground->Blue(), this->currentBackground->Alpha());
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      //команды отрисовки точек
-      glColor3d(1, 1, 0.5);
+      //команды отрисовки вершин
+      glColor3f(this->colorEdges->Red(), this->colorEdges->Blue(), this->colorEdges->Green());
+//      glColor3d(1, 1, 0.5);
       glPointSize(this->size_edges);
       glBegin(GL_POINTS);
       for (int i = 0; i < this->count_vector; i++) {
           glVertex3d(this->current_vectors[i].x, this->current_vectors[i].y, this->current_vectors[i].z);
       }
       glEnd();
-      //команды отрисовки линий
-      glColor3d(0.5, 0.5, 0.5);
+      //команды отрисовки векторов
+      glColor3f(this->colorVertex->Red(), this->colorVertex->Blue(), this->colorVertex->Green());
+//      glColor3d(0.5, 0.5, 0.5);
       glLineWidth(this->size_vertex);
       for (int i = 0; i < this->count_surface; i++) {
           glBegin(GL_LINE_LOOP);

@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     countCustomColor = 1;
-    ui->openGLWidget->SetShift_XYZ(this->ui->Shift_X, this->ui->Shift_Y, this->ui->Shift_Z);
+    ui->openGLWidget->SetShift_XYZ(this->ui->Shift_X, this->ui->Shift_Y, this->ui->Shift_Z, this->ui->Shift_Size);
 }
 
 MainWindow::~MainWindow()
@@ -82,30 +82,52 @@ void MainWindow::on_Projection_Color_clicked()
 
 void MainWindow::on_Vertex_Color_clicked()
 {
-
+    QColor color = QColorDialog::getColor(QColor("white"), this);
+    if (color.isValid())
+        ui->openGLWidget->AddColorModel(color, "vertex");
 }
 
 
 void MainWindow::on_Edges_Color_clicked()
 {
-
+    QColor color = QColorDialog::getColor(QColor("white"), this);
+    if (color.isValid())
+        ui->openGLWidget->AddColorModel(color, "edges");
 }
 
 
-void MainWindow::on_Shift_X_textChanged(const QString &arg1)
+void MainWindow::on_Shift_Size_editingFinished()
+{
+     ui->Scroll_ShiftSize->setValue(ui->Shift_Size->text().toFloat()*10);
+     ui->openGLWidget->SetScaling(ui->Shift_Size->value());
+//    printf("HI THERE");
+}
+
+void MainWindow::on_Shift_X_editingFinished()
 {
  ui->Scroll_ShiftX->setValue(ui->Shift_X->text().toFloat()*100);
+ ui->openGLWidget->SetShift_X(ui->Shift_X->value());
 }
 
-void MainWindow::on_Shift_Y_textChanged(const QString &arg1)
+void MainWindow::on_Shift_Y_editingFinished()
 {
  ui->Scroll_ShiftY->setValue(ui->Shift_Y->text().toFloat()*100);
+  ui->openGLWidget->SetShift_Y(ui->Shift_Y->value());
 }
 
-void MainWindow::on_Shift_Z_textChanged(const QString &arg1)
+void MainWindow::on_Shift_Z_editingFinished()
 {
     ui->Scroll_ShiftZ->setValue(ui->Shift_Z->text().toFloat()*100);
+     ui->openGLWidget->SetShift_Z(ui->Shift_Z->value());
 }
+
+
+void MainWindow::on_Scroll_ShiftSize_sliderMoved(int position)
+{
+    double shift = (double)position/10;
+    ui->openGLWidget->SetScaling(shift);
+}
+
 
 void MainWindow::on_Scroll_ShiftX_sliderMoved(int position)
 {
@@ -145,4 +167,5 @@ void MainWindow::on_Scroll_RotateZ_sliderMoved(int position)
     double shift = (double)position/100;
    ui->openGLWidget->SetRotate_Z(shift);
 }
+
 

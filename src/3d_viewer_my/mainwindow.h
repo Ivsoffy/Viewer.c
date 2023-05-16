@@ -42,11 +42,11 @@ private slots:
 
     void on_Edges_Color_clicked();
 
-    void on_Shift_X_textChanged(const QString &arg1);
+    void on_Shift_X_editingFinished();
 
-    void on_Shift_Z_textChanged(const QString &arg1);
+    void on_Shift_Z_editingFinished();
 
-    void on_Shift_Y_textChanged(const QString &arg1);
+    void on_Shift_Y_editingFinished();
 
     void on_Scroll_ShiftZ_sliderMoved(int position);
 
@@ -59,6 +59,10 @@ private slots:
     void on_Scroll_RotateY_sliderMoved(int position);
 
     void on_Scroll_RotateZ_sliderMoved(int position);
+
+    void on_Scroll_ShiftSize_sliderMoved(int position);
+
+    void on_Shift_Size_editingFinished();
 
 private:
     Ui::MainWindow *ui;

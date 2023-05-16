@@ -529,7 +529,7 @@ background-color : white;</string>
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>390</y>
+      <y>360</y>
       <width>251</width>
       <height>31</height>
      </rect>
@@ -770,9 +770,9 @@ QScrollBar::sub-line:horizontal {
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>390</y>
+      <y>360</y>
       <width>251</width>
-      <height>271</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -949,7 +949,7 @@ color:rgb(0, 0, 0);
    </widget>
    <widget class="QDoubleSpinBox" name="Shift_Z">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -980,6 +980,77 @@ border:none;
     </property>
     <property name="singleStep">
      <double>0.100000000000000</double>
+    </property>
+   </widget>
+   <widget class="QScrollBar" name="Scroll_ShiftSize">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>400</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="Shift_Size">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>400</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QDoubleSpinBox{
+	background-color : #c7ccb9;
+color:rgb(0, 0, 0);
+}</string>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::NoButtons</enum>
+    </property>
+    <property name="minimum">
+     <double>0.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>0.100000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>400</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+  color: #364330;
+}</string>
+    </property>
+    <property name="text">
+     <string>S:</string>
     </property>
    </widget>
    <zorder>Projection_8</zorder>
@@ -1023,6 +1094,9 @@ border:none;
    <zorder>Shift_X</zorder>
    <zorder>Shift_Y</zorder>
    <zorder>Shift_Z</zorder>
+   <zorder>Scroll_ShiftSize</zorder>
+   <zorder>Shift_Size</zorder>
+   <zorder>label_9</zorder>
   </widget>
  </widget>
  <customwidgets>

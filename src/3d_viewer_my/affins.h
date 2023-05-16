@@ -13,6 +13,8 @@ typedef struct difference {
   double z_alpha;
 } difference;
 
+void recalculation(vector* vectors, int count_vector, vector* result, difference diff);
+
 vector* move_xyz(vector* vectors, int count_vector, double x_move,
                         double y_move, double z_move, vector* result);
 vector* size_xyz(vector* vectors, int count_vector, double x_size,
