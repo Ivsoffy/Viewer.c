@@ -105,9 +105,6 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
 
 void MainWindow::on_pushButton_3_clicked()
 {
-
-//    QPixmap map = ui->openGLWidget->grab();
-//    printf("You get a gif!");
     QString filename = QFileDialog::getSaveFileName(NULL, "Save to ...", "", "GIF image (*.gif)");
         if(!filename.isEmpty())
             ui->openGLWidget->TakeGif(filename);
@@ -160,7 +157,6 @@ void MainWindow::on_Shift_Size_editingFinished()
 {
      ui->Scroll_ShiftSize->setValue(ui->Shift_Size->text().toFloat()*10);
      ui->openGLWidget->SetScaling(ui->Shift_Size->value());
-//    printf("HI THERE");
 }
 
 void MainWindow::on_Shift_X_editingFinished()
@@ -205,7 +201,6 @@ void MainWindow::on_Scroll_ShiftZ_sliderMoved(int position)
 {
     double shift = (double)position/100;
     ui->openGLWidget->SetShift_Z(shift);
-//    printf("I'm here! 111\n");
 }
 
 void MainWindow::on_Scroll_RotateX_sliderMoved(int position)

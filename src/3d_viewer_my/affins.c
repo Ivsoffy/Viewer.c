@@ -11,48 +11,17 @@ void recalculation(vector* vectors, int count_vector, vector* result, difference
         result[i].y = (vectors[i].y + diff.y_move)* diff.size;
         result[i].z = (vectors[i].z + diff.z_move)* diff.size;
 
-        buf_x = result[i].x;
-        buf_y = result[i].y;
-        buf_z = result[i].z;
+          double x = result[i].x;
+          double y = result[i].y;
+          double z = result[i].z;
+          double A = diff.x_alpha;
+          double B = diff.y_alpha;
+          double C = diff.z_alpha;
 
-//        result[i].y = buf_y * cos(diff.x_alpha) + buf_z * sin(diff.x_alpha);
-//        buf_y = result[i].y;
-//        result[i].z = -buf_y * sin(diff.x_alpha) + buf_z * cos(diff.x_alpha);
-//        buf_z = result[i].z;
-
-//        result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
-//        buf_x = result[i].x;
-//        result[i].z = -buf_x * sin(diff.y_alpha) + buf_z * cos(diff.y_alpha);
-//        buf_z = result[i].z;
-
-//        result[i].x = buf_x * cos(diff.z_alpha) + buf_y * sin(diff.z_alpha);
-//        buf_y = result[i].y;
-//        result[i].y = -buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
-//        buf_x = result[i].x;
-
-          //rotation x
-          result[i].x = buf_x;
-          result[i].y = buf_y * cos(diff.x_alpha) - buf_z * sin(diff.x_alpha);
-                buf_y = result[i].y;
-          result[i].z = buf_y * sin(diff.x_alpha) + buf_z * cos(diff.x_alpha);
-                buf_z = result[i].z;
-
-          //rotation y
-          result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
-                buf_x = result[i].x;
-          result[i].y = buf_y;
-          result[i].z = -buf_x * sin(diff.y_alpha) + buf_z * cos(diff.y_alpha);
-                buf_z = result[i].z;
-
-          // rotation z
-          result[i].x = buf_x * cos(diff.z_alpha) - buf_y * sin(diff.z_alpha);
-                buf_y = result[i].y;
-          result[i].y = buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
-                buf_x = result[i].x;
-          result[i].z = buf_z;
-
+          result[i].x = (x*cos(B+C)+x*cos(B-C)+2*z*sin(B)-y*sin(B+C)+y*sin(B-C))/2;
+          result[i].y = (2*y*cos(A+C)-x*cos(A+B+C)+x*cos(A-B+C)+2*y*cos(A-C)-x*cos(A+B-C)+x*cos(A-B-C)-2*z*sin(A+B)-2*z*sin(A-B)+2*x*sin(A+C)+y*sin(A+B+C)-y*sin(A-B+C)-2*x*sin(A-C)-y*sin(A+B-C)+y*sin(A-B-C))/4;
+          result[i].z = (2*z*cos(A+B)+2*z*cos(A-B)-2*x*cos(A+C)-y*cos(A+B+C)+y*cos(A-B+C)+2*x*cos(A-C)+y*cos(A+B-C)-y*cos(A-B-C)+2*y*sin(A+C)-x*sin(A+B+C)+x*sin(A-B+C)+2*y*sin(A-C)-x*sin(A+B-C)+x*sin(A-B-C))/4;
     }
-//    printf("<<<<<%lf %lf\n", result[0].x, vectors[0].x);
 }
 
 vector* move_xyz(vector* vectors, int count_vector, double x_move,//
