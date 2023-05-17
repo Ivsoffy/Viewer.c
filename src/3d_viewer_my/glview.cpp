@@ -28,7 +28,7 @@ void glView::initializeGL() {
   glViewport(0, 0, width(), height());
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(-2.0, 2.0 , -2.0 ,2.0 ,-100.5 , 100.5);
+  glOrtho(-4.0, 4.0 , -4.0 ,4.0 ,-100.5 , 100.5);
 //  glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0);
 //  glFrustum(-4, 4, -4, 4, 1.5, 1000.0);
   glMatrixMode(GL_MODELVIEW);
@@ -185,8 +185,8 @@ void glView::mousePressEvent(QMouseEvent *event) {
 void glView::mouseMoveEvent(QMouseEvent *event){
     if (!shift)
     {
-        this->diff.x_alpha=event->position().x()/this->size().height();
-        this->diff.y_alpha=event->position().y()/this->size().width();
+        this->diff.y_alpha=event->position().x()/this->size().height();
+        this->diff.x_alpha=event->position().y()/this->size().width();
         this->Rotate_X->setValue(this->diff.x_alpha*(180/3.14));
         this->Rotate_Y->setValue(this->diff.y_alpha*(180/3.14));
     } else {
@@ -248,20 +248,20 @@ void glView::SaveGif() {
 }
 
 void glView::UpdateProjection(int index) { // do not work perspective is trash irl
-//   this->ProjectionType = index;
-//    glViewport(0, 0, width(), height());
-//    glMatrixMode(GL_PROJECTION);
-//    glLoadIdentity();
-//     if ( this->ProjectionType==1)
-//     {
-//         glFrustum(-4, 4, -4, 4, 1, 100);
-//     }
-//     else
-//     {
-//         glOrtho(-4, 4, -4, 4, -100, 100);
-//     }
-//     glMatrixMode(GL_MODELVIEW);
-//    this->update();
+   this->ProjectionType = index;
+    glViewport(0, 0, width(), height());
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+     if ( this->ProjectionType==1)
+     {
+         glFrustum(-4, 4, -4, 4, 1, 100);
+     }
+     else
+     {
+         glOrtho(-4, 4, -4, 4, -100, 100);
+     }
+     glMatrixMode(GL_MODELVIEW);
+    this->update();
 }
 
 void glView::paintGL() {
