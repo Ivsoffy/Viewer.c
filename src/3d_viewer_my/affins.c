@@ -15,20 +15,41 @@ void recalculation(vector* vectors, int count_vector, vector* result, difference
         buf_y = result[i].y;
         buf_z = result[i].z;
 
-        result[i].y = buf_y * cos(diff.x_alpha) + buf_z * sin(diff.x_alpha);
-        buf_y = result[i].y;
-        result[i].z = -buf_y * sin(diff.x_alpha) + buf_z * cos(diff.x_alpha);
-        buf_z = result[i].z;
+//        result[i].y = buf_y * cos(diff.x_alpha) + buf_z * sin(diff.x_alpha);
+//        buf_y = result[i].y;
+//        result[i].z = -buf_y * sin(diff.x_alpha) + buf_z * cos(diff.x_alpha);
+//        buf_z = result[i].z;
 
-        result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
-        buf_x = result[i].x;
-        result[i].z = -buf_x * sin(diff.y_alpha) + buf_z * cos(diff.y_alpha);
-        buf_z = result[i].z;
+//        result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
+//        buf_x = result[i].x;
+//        result[i].z = -buf_x * sin(diff.y_alpha) + buf_z * cos(diff.y_alpha);
+//        buf_z = result[i].z;
 
-        result[i].y = -buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
-        buf_y = result[i].y;
-        result[i].x = buf_x * cos(diff.z_alpha) + buf_y * sin(diff.z_alpha);
-        buf_x = result[i].x;
+//        result[i].x = buf_x * cos(diff.z_alpha) + buf_y * sin(diff.z_alpha);
+//        buf_y = result[i].y;
+//        result[i].y = -buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
+//        buf_x = result[i].x;
+
+          //rotation x
+          result[i].x = buf_x;
+          result[i].y = buf_y * cos(diff.x_alpha) - buf_z * sin(diff.x_alpha);
+                buf_y = result[i].y;
+          result[i].z = buf_y * sin(diff.x_alpha) + buf_z * cos(diff.x_alpha);
+                buf_z = result[i].z;
+
+          //rotation y
+          result[i].x = buf_x * cos(diff.y_alpha) + buf_z * sin(diff.y_alpha);
+                buf_x = result[i].x;
+          result[i].y = buf_y;
+          result[i].z = -buf_x * sin(diff.y_alpha) + buf_z * cos(diff.y_alpha);
+                buf_z = result[i].z;
+
+          // rotation z
+          result[i].x = buf_x * cos(diff.z_alpha) - buf_y * sin(diff.z_alpha);
+                buf_y = result[i].y;
+          result[i].y = buf_x * sin(diff.z_alpha) + buf_y * cos(diff.z_alpha);
+                buf_x = result[i].x;
+          result[i].z = buf_z;
 
     }
 //    printf("<<<<<%lf %lf\n", result[0].x, vectors[0].x);

@@ -72,6 +72,9 @@ public:
     QDoubleSpinBox *Shift_Size;
     QLabel *label_9;
     QScrollBar *ScrollTimer;
+    QDoubleSpinBox *Rotate_X;
+    QDoubleSpinBox *Rotate_Y;
+    QDoubleSpinBox *Rotate_Z;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -533,6 +536,51 @@ public:
         ScrollTimer->setMinimum(0);
         ScrollTimer->setMaximum(30);
         ScrollTimer->setOrientation(Qt::Horizontal);
+        Rotate_X = new QDoubleSpinBox(centralwidget);
+        Rotate_X->setObjectName(QString::fromUtf8("Rotate_X"));
+        Rotate_X->setEnabled(true);
+        Rotate_X->setGeometry(QRect(690, 570, 41, 20));
+        Rotate_X->setStyleSheet(QString::fromUtf8("QDoubleSpinBox{\n"
+"	background-color : #c7ccb9;\n"
+"color:rgb(0, 0, 0);\n"
+"border:none;\n"
+"}"));
+        Rotate_X->setFrame(true);
+        Rotate_X->setReadOnly(false);
+        Rotate_X->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        Rotate_X->setMinimum(-400.000000000000000);
+        Rotate_X->setMaximum(400.000000000000000);
+        Rotate_X->setSingleStep(0.100000000000000);
+        Rotate_Y = new QDoubleSpinBox(centralwidget);
+        Rotate_Y->setObjectName(QString::fromUtf8("Rotate_Y"));
+        Rotate_Y->setEnabled(true);
+        Rotate_Y->setGeometry(QRect(690, 600, 41, 20));
+        Rotate_Y->setStyleSheet(QString::fromUtf8("QDoubleSpinBox{\n"
+"	background-color : #c7ccb9;\n"
+"color:rgb(0, 0, 0);\n"
+"border:none;\n"
+"}"));
+        Rotate_Y->setFrame(true);
+        Rotate_Y->setReadOnly(false);
+        Rotate_Y->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        Rotate_Y->setMinimum(-400.000000000000000);
+        Rotate_Y->setMaximum(400.000000000000000);
+        Rotate_Y->setSingleStep(0.100000000000000);
+        Rotate_Z = new QDoubleSpinBox(centralwidget);
+        Rotate_Z->setObjectName(QString::fromUtf8("Rotate_Z"));
+        Rotate_Z->setEnabled(true);
+        Rotate_Z->setGeometry(QRect(690, 630, 41, 20));
+        Rotate_Z->setStyleSheet(QString::fromUtf8("QDoubleSpinBox{\n"
+"	background-color : #c7ccb9;\n"
+"color:rgb(0, 0, 0);\n"
+"border:none;\n"
+"}"));
+        Rotate_Z->setFrame(true);
+        Rotate_Z->setReadOnly(false);
+        Rotate_Z->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        Rotate_Z->setMinimum(-400.000000000000000);
+        Rotate_Z->setMaximum(400.000000000000000);
+        Rotate_Z->setSingleStep(0.100000000000000);
         MainWindow->setCentralWidget(centralwidget);
         Projection_8->raise();
         openGLWidget->raise();
@@ -579,6 +627,9 @@ public:
         Shift_Size->raise();
         label_9->raise();
         ScrollTimer->raise();
+        Rotate_X->raise();
+        Rotate_Y->raise();
+        Rotate_Z->raise();
 
         retranslateUi(MainWindow);
 

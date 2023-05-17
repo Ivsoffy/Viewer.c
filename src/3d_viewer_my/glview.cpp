@@ -38,6 +38,12 @@ void glView::SetShift_XYZ(QDoubleSpinBox* X, QDoubleSpinBox* Y, QDoubleSpinBox* 
     this->Shift_Size = Size;
 }
 
+void glView::SetRotate_XYZ(QDoubleSpinBox* X, QDoubleSpinBox* Y, QDoubleSpinBox* Z) {
+    this->Rotate_X = X;
+     this->Rotate_Y = Y;
+     this->Rotate_Z = Z;
+}
+
 void glView::setMetrics() {
     this->shift=0;
     this->position_x =0;
@@ -142,19 +148,19 @@ void glView::SetShift_Y(double Y){
 
 void glView::SetRotate_X(double X) {
     this->diff.x_alpha=X;
-    // add spinbox
+    this->Rotate_X->setValue(this->diff.x_alpha*(180/3.14));
       this->recalc();
 }
 
 void glView::SetRotate_Y(double Y) {
     this->diff.y_alpha=Y;
-    // add spinbox
+    this->Rotate_Y->setValue(this->diff.y_alpha*(180/3.14));
     this->recalc();
 }
 
 void glView::SetRotate_Z(double Z) {
     this->diff.z_alpha=Z;
-    //add spinbox
+    this->Rotate_Z->setValue(this->diff.z_alpha*(180/3.14));
     this->recalc();
 }
 
@@ -177,6 +183,8 @@ void glView::mouseMoveEvent(QMouseEvent *event){
     {
         this->diff.x_alpha=event->position().x()/this->size().height();
         this->diff.y_alpha=event->position().y()/this->size().width();
+        this->Rotate_X->setValue(this->diff.x_alpha*(180/3.14));
+        this->Rotate_Y->setValue(this->diff.y_alpha*(180/3.14));
     } else {
         this->diff.x_move+=(event->scenePosition().x() - this->position_x)/speed*(this->diff.size*0.5);
         this->diff.y_move+= (event->scenePosition().y() - this->position_y)/speed*(this->diff.size*0.5);
@@ -201,7 +209,7 @@ void glView::keyReleaseEvent(QKeyEvent *event) {
 void glView::TakePic() {
      QImage e = this->grabFramebuffer();
      this->Time->setValue(this->Time->value()+1);
-     e = e.scaled( 640, 480, Qt::IgnoreAspectRatio);
+     e = e.scaled( 640, 480, Qt::IgnoreAspectRatio); // aspectratio is goddamanit trash hate this this crush gif that bunch of shit
     frames.push_back(e);
        if (frames.size()==30)
        {
@@ -235,7 +243,7 @@ void glView::SaveGif() {
         frames.clear();
 }
 
-void glView::UpdateProjection(int index) { // do not work
+void glView::UpdateProjection(int index) { // do not work perspective is trash irl
    this->ProjectionType = index;
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();

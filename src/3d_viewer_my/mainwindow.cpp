@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     readSettings();
     countCustomColor = 1;
     ui->openGLWidget->SetShift_XYZ(this->ui->Shift_X, this->ui->Shift_Y, this->ui->Shift_Z, this->ui->Shift_Size);
+    ui->openGLWidget->SetRotate_XYZ(this->ui->Rotate_X, this->ui->Rotate_Y, this->ui->Rotate_Z);
     ui->openGLWidget->Time=ui->ScrollTimer;
 }
 

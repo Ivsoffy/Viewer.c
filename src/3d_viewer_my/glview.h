@@ -87,6 +87,9 @@ private:
     QDoubleSpinBox* Shift_X;
     QDoubleSpinBox* Shift_Y;
     QDoubleSpinBox* Shift_Z;
+    QDoubleSpinBox* Rotate_X;
+    QDoubleSpinBox* Rotate_Y;
+    QDoubleSpinBox* Rotate_Z;
     QDoubleSpinBox* Shift_Size;
     difference diff;
     QList<QImage> frames;
@@ -116,6 +119,7 @@ public:
     void SetRotate_Z(double);
     void SetScaling(double);
     void SetShift_XYZ(QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*);
+    void SetRotate_XYZ(QDoubleSpinBox*, QDoubleSpinBox*, QDoubleSpinBox*);
     void recalc();
     void TakeGif(QString);
     void SaveGif();
