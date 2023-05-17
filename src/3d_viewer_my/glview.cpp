@@ -20,13 +20,15 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
     this->count_vector = 0, this->count_surface = 0;
     pointType=0;
     VertexType=0;
+    ProjectionType = 0;
     setMetrics();
 }
 
 void glView::initializeGL() {
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(-4, 4, 4, -4, -100, 100);
+//  glMatrixMode(GL_PROJECTION);
+//  glLoadIdentity();
+//  glOrtho(-4, 4, 4, -4, -100, 100);
+    this->UpdateProjection(0);
 }
 
 void glView::SetShift_XYZ(QDoubleSpinBox* X, QDoubleSpinBox* Y, QDoubleSpinBox* Z, QDoubleSpinBox* Size) {
@@ -105,7 +107,6 @@ void glView::setFilename(QString filename) {
              this->current_vectors[j].y=this->vectors[j].y;
              this->current_vectors[j].z=this->vectors[j].z;
          }
-//            printf("%lf %lf\n", this->vectors[0].x, this->current_vectors[0].x);
          this->filename=filename;
          setMetrics();
      }
@@ -113,68 +114,46 @@ void glView::setFilename(QString filename) {
 
 void glView::recalc() {
    recalculation(this->vectors, this->count_vector, this->current_vectors, diff);
-//   printf("%lf %lf\n", this->vectors[0].x, this->current_vectors[0].x);
    this->update();
 }
 
 void glView::SetScaling(double size) {
     this->diff.size = size;
-//    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по z
     this->Shift_Size->setValue(size);
-//    this->update();
     this->recalc();
 }
 
 void glView::SetShift_Z(double Z) {
-//    this->scale=Z;
     this->diff.z_move= Z;
-//    this->current_vectors = size_xyz(this->vectors, this->count_vector, Z, Z, Z, this->current_vectors); // масштабирование по z
     this->Shift_Z->setValue(Z);
-//    this->update();
     this->recalc();
 }
 
 void glView::SetShift_X(double X) {
-//    this->move_x=X;
     this->diff.x_move=X;
-
-//    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x
-
     this->Shift_X->setValue(this->diff.x_move);
-//    this->update();
     this->recalc();
 }
 void glView::SetShift_Y(double Y){
-//    this->move_y=Y;
     this->diff.y_move=Y;
-//    this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по  y
     this->Shift_Y->setValue(this->diff.y_move);
-//     this->update();
     this->recalc();
 }
 
 void glView::SetRotate_X(double X) {
-//    this->x=X;
     this->diff.x_alpha=X;
-//    this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
     // add spinbox
-//    this->update();
       this->recalc();
 }
 
 void glView::SetRotate_Y(double Y) {
-//    this->y=Y;
-        this->diff.y_alpha=Y;
-//    this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
+    this->diff.y_alpha=Y;
     // add spinbox
-//    this->update();
     this->recalc();
 }
 
 void glView::SetRotate_Z(double Z) {
     this->diff.z_alpha=Z;
-//    this->current_vectors = rotation_z(this->vectors, this->count_vector, Z, this->current_vectors); // поворот по z
-//    this->update();
     //add spinbox
     this->recalc();
 }
@@ -182,10 +161,8 @@ void glView::SetRotate_Z(double Z) {
 void glView::wheelEvent(QWheelEvent *event) {
     if (event->position().x()>0 && event->position().y()>0)
     {
-//        this->scale+=(double)event->angleDelta().y()/speed;
         this->diff.size+=(double)event->angleDelta().y()/speed;
         if (diff.size<0) diff.size=0;
-//        this->SetShift_Z(this->scale);
         this->SetScaling(this->diff.size);
     }
 }
@@ -198,24 +175,16 @@ void glView::mousePressEvent(QMouseEvent *event) {
 void glView::mouseMoveEvent(QMouseEvent *event){
     if (!shift)
     {
-//        this->x=event->position().x()/this->size().height();
         this->diff.x_alpha=event->position().x()/this->size().height();
-//        this->y=event->position().y()/this->size().width();
         this->diff.y_alpha=event->position().y()/this->size().width();
-//        this->current_vectors = rotation_x(this->vectors, this->count_vector, this->x, this->current_vectors); // поворот по x
-//        this->current_vectors = rotation_y(this->vectors, this->count_vector, this->y, this->current_vectors); // поворот по y
     } else {
-//        this->move_x+= (event->scenePosition().x() - this->position_x)/speed*scale;
         this->diff.x_move+=(event->scenePosition().x() - this->position_x)/speed*(this->diff.size*0.5);
-//        this->move_y+=  (event->scenePosition().y() - this->position_y)/speed*scale;
         this->diff.y_move+= (event->scenePosition().y() - this->position_y)/speed*(this->diff.size*0.5);
-//        this->current_vectors = move_xyz(this->vectors, this->count_vector, this->move_x, this->move_y, 0, this->current_vectors); // перемещение по x, y,
         this->position_x=event->scenePosition().x();
         this->position_y=event->scenePosition().y();
         this->Shift_X->setValue(this->diff.x_move);
         this->Shift_Y->setValue(this->diff.y_move);
     }
-//    this->update();
     this->recalc();
 }
 
@@ -232,10 +201,7 @@ void glView::keyReleaseEvent(QKeyEvent *event) {
 void glView::TakePic() {
      QImage e = this->grabFramebuffer();
      this->Time->setValue(this->Time->value()+1);
-     e = e.scaled( 640, 480, Qt::KeepAspectRatio);
-//    QPixmap map = grab();
-//    QImage e = map.toImage();
-//    maps.push_back(map);
+     e = e.scaled( 640, 480, Qt::IgnoreAspectRatio);
     frames.push_back(e);
        if (frames.size()==30)
        {
@@ -252,7 +218,6 @@ void glView::TakeGif(QString file){
     timer->setInterval(100);
     // connect
     connect(timer, SIGNAL(timeout()), this, SLOT(TakePic()));
-//            this->ui->openGLWidget->TakeGif(filename,&timer);
     timer->start(100);
 }
 
@@ -261,48 +226,40 @@ void glView::SaveGif() {
     int height = 480;
     uint32_t delay = 60 / 10; // fps
     GifWriter writer;
-//    QString file = "/Users/coriande/Desktop/pixmap/top";
-//    if (!file.isEmpty())
-//        for (int i =0; i< 50; i++)
-//    {
-//            maps[i].save(file+ QString::number(i)+".png");
-//        }
-        GifBegin(&writer, fileGIF.toStdString().c_str(), width, height, delay);
+        GifBegin(&writer, fileGIF.toStdString().c_str(), width, height, delay, 8, true);
         for (int i =0; i< 30; i++) {
-//            QByteArray alpha8((char *)frames[i].bits(), frames[i].sizeInBytes());
-//            fprintf(stderr,"END\n");
-
                      GifWriteFrame(&writer, frames[i].convertToFormat(QImage::Format_Indexed8).
-                                   convertToFormat(QImage::Format_RGBA8888).constBits(), width, height, delay);
-//           GifWriteFrame(&writer, (uint8_t *)alpha8.data(), width, height, delay);
-//            fprintf(stderr,"try\n");
+                                   convertToFormat(QImage::Format_RGBA8888).constBits(), width, height, delay, 8, true);
         }
         GifEnd(&writer);
         frames.clear();
 }
 
+void glView::UpdateProjection(int index) { // do not work
+   this->ProjectionType = index;
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+     if ( this->ProjectionType==1)
+     {
+         glFrustum(-1, 1, 1, -1, 1, 1);
+     }
+     else
+     {
+         glOrtho(-4, 4, 4, -4, -100, 100);
+     }
+     glMatrixMode(GL_MODELVIEW);
+    this->update();
+}
 
 void glView::paintGL() {
     if (this->count_vector)
   {
+
         if (this->pointType==0)
       glEnable(GL_POINT_SMOOTH);
         else glDisable(GL_POINT_SMOOTH);
       glClearColor(this->currentBackground->Red(), this->currentBackground->Green(), this->currentBackground->Blue(), this->currentBackground->Alpha());
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-      //команды отрисовки вершин
-      if (this->pointType!=2)
-      {
-          glColor3f(this->colorEdges->Red(), this->colorEdges->Green(), this->colorEdges->Blue());
-          glPointSize(this->size_edges);
-
-          glBegin(GL_POINTS);
-          for (int i = 0; i < this->count_vector; i++) {
-              glVertex3d(this->current_vectors[i].x, this->current_vectors[i].y, this->current_vectors[i].z);
-          }
-          glEnd();
-      }
 
       //команды отрисовки векторов
 
@@ -319,5 +276,20 @@ void glView::paintGL() {
           }
           glEnd();
       }
+
+      //команды отрисовки вершин
+
+      if (this->pointType!=2)
+      {
+          glColor3f(this->colorEdges->Red(), this->colorEdges->Green(), this->colorEdges->Blue());
+          glPointSize(this->size_edges);
+
+          glBegin(GL_POINTS);
+          for (int i = 0; i < this->count_vector; i++) {
+              glVertex3d(this->current_vectors[i].x, this->current_vectors[i].y, this->current_vectors[i].z);
+          }
+          glEnd();
+      }
+
   }
 }

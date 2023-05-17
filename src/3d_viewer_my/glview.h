@@ -95,6 +95,7 @@ private:
 public:
     int pointType;
     int VertexType;
+    int ProjectionType;
     glView(QWidget*parent=nullptr);
     void initializeGL() override;
     void resizeGL(int w, int h) override;
@@ -118,6 +119,7 @@ public:
     void recalc();
     void TakeGif(QString);
     void SaveGif();
+    void UpdateProjection(int);
     QScrollBar* Time;
 private slots:
     void TakePic();

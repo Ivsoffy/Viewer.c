@@ -242,3 +242,9 @@ void MainWindow::on_Vertex_Settenings_currentIndexChanged(int index)
          ui->openGLWidget->update();
 }
 
+
+void MainWindow::on_comboBox_4_currentIndexChanged(int index)
+{
+    ui->openGLWidget->UpdateProjection(index);
+}
+

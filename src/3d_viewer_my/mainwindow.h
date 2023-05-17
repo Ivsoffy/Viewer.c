@@ -76,6 +76,8 @@ private slots:
 
     void closeEvent (QCloseEvent *event);
 
+    void on_comboBox_4_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
     int countCustomColor;
