@@ -19,11 +19,13 @@ START_TEST(affins_move_1) {
                        &count_surface);
   vector origin_vectors[3] = {40, -20, -20, 40, -20, 20, 0, -20, 20};
   count_vector = 3;
-  vectors = move_xyz(vectors, count_vector, 20, 0, 0);
+  difference diff = {20, 0, 0, 1, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -36,11 +38,13 @@ START_TEST(affins_move_2) {
                        &count_surface);
   vector origin_vectors[3] = {0, -20, -20, 0, -20, 20, -40, -20, 20};
   count_vector = 3;
-  vectors = move_xyz(vectors, count_vector, -20, 0, 0);
+  difference diff = {-20, 0, 0, 1, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -53,11 +57,13 @@ START_TEST(affins_move_3) {
                        &count_surface);
   vector origin_vectors[3] = {40, 0, 0, 40, 0, 40, 0, 0, 40};
   count_vector = 3;
-  vectors = move_xyz(vectors, count_vector, 20, 20, 20);
+  difference diff = {20, 20, 20, 1, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -68,47 +74,15 @@ START_TEST(affins_size_1) {
   int count_vector = 0, count_surface = 0;
   int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector,
                        &count_surface);
-  vector origin_vectors[3] = {40, -20, -20, 40, -20, 20, -40, -20, 20};
-  count_vector = 3;
-  vectors = size_xyz(vectors, count_vector, 2, 1, 1);
-  for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
-  }
-}
-END_TEST
-
-START_TEST(affins_size_2) {
-  vector *vectors;
-  surface_dot *surface;
-  int count_vector = 0, count_surface = 0;
-  int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector,
-                       &count_surface);
-  vector origin_vectors[3] = {-40, -20, -20, -40, -20, 20, 40, -20, 20};
-  count_vector = 3;
-  vectors = size_xyz(vectors, count_vector, -2, 1, 1);
-  for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
-  }
-}
-END_TEST
-
-START_TEST(affins_size_3) {
-  vector *vectors;
-  surface_dot *surface;
-  int count_vector = 0, count_surface = 0;
-  int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector,
-                       &count_surface);
   vector origin_vectors[3] = {40, -40, -40, 40, -40, 40, -40, -40, 40};
   count_vector = 3;
-  vectors = size_xyz(vectors, count_vector, 2, 2, 2);
+  difference diff = {0, 0, 0, 2, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -121,11 +95,13 @@ START_TEST(affins_rotation_x_1) {
                        &count_surface);
   vector origin_vectors[3] = {20, -20, -20, 20, -20, 20, -20, -20, 20};
   count_vector = 3;
-  vectors = rotation_x(vectors, count_vector, 0);
+  difference diff = {0, 0, 0, 1, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -138,11 +114,13 @@ START_TEST(affins_rotation_x_2) {
                        &count_surface);
   vector origin_vectors[3] = {20, 20, 20, 20, 20, -20, -20, 20, -20};
   count_vector = 3;
-  vectors = rotation_x(vectors, count_vector, M_PI);
+  difference diff = {0, 0, 0, 1, M_PI, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -153,13 +131,15 @@ START_TEST(affins_rotation_x_3) {
   int count_vector = 0, count_surface = 0;
   int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector,
                        &count_surface);
-  vector origin_vectors[3] = {20, -20, 20, 20, 20, 20, -20, 20, 20};
+  vector origin_vectors[3] = {20, 20, -20, 20, -20, -20, -20, -20, -20};
   count_vector = 3;
-  vectors = rotation_x(vectors, count_vector, M_PI / 2);
+  difference diff = {0, 0, 0, 1, M_PI / 2, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -172,11 +152,13 @@ START_TEST(affins_rotation_y_1) {
                        &count_surface);
   vector origin_vectors[3] = {20, -20, -20, 20, -20, 20, -20, -20, 20};
   count_vector = 3;
-  vectors = rotation_y(vectors, count_vector, 0);
+  difference diff = {0, 0, 0, 1, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -189,11 +171,13 @@ START_TEST(affins_rotation_y_2) {
                        &count_surface);
   vector origin_vectors[3] = {-20, -20, 20, -20, -20, -20, 20, -20, -20};
   count_vector = 3;
-  vectors = rotation_y(vectors, count_vector, M_PI);
+  difference diff = {0, 0, 0, 1, 0, M_PI, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -206,11 +190,13 @@ START_TEST(affins_rotation_y_3) {
                        &count_surface);
   vector origin_vectors[3] = {-20, -20, -20, 20, -20, -20, 20, -20, 20};
   count_vector = 3;
-  vectors = rotation_y(vectors, count_vector, M_PI / 2);
+  difference diff = {0, 0, 0, 1, 0, M_PI / 2, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -223,11 +209,13 @@ START_TEST(affins_rotation_z_1) {
                        &count_surface);
   vector origin_vectors[3] = {20, -20, -20, 20, -20, 20, -20, -20, 20};
   count_vector = 3;
-  vectors = rotation_z(vectors, count_vector, 0);
+  difference diff = {0, 0, 0, 1, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -240,11 +228,13 @@ START_TEST(affins_rotation_z_2) {
                        &count_surface);
   vector origin_vectors[3] = {-20, 20, -20, -20, 20, 20, 20, 20, 20};
   count_vector = 3;
-  vectors = rotation_z(vectors, count_vector, M_PI);
+  difference diff = {0, 0, 0, 1, 0, 0, M_PI};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -255,13 +245,53 @@ START_TEST(affins_rotation_z_3) {
   int count_vector = 0, count_surface = 0;
   int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector,
                        &count_surface);
-  vector origin_vectors[3] = {-20, -20, -20, -20, -20, 20, -20, 20, 20};
+  vector origin_vectors[3] = {20, 20, -20, 20, 20, 20, 20, -20, 20};
   count_vector = 3;
-  vectors = rotation_z(vectors, count_vector, M_PI / 2);
+  difference diff = {0, 0, 0, 1, 0, 0, M_PI / 2};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
   for (int i = 0; i < count_vector; i++) {
-    ck_assert_double_eq_tol(vectors[i].x, origin_vectors[i].x, TOL);
-    ck_assert_double_eq_tol(vectors[i].y, origin_vectors[i].y, TOL);
-    ck_assert_double_eq_tol(vectors[i].z, origin_vectors[i].z, TOL);
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
+  }
+}
+END_TEST
+
+START_TEST(affins_mult_1) {
+  vector *vectors;
+  surface_dot *surface;
+  int count_vector = 0, count_surface = 0;
+  int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector,
+                       &count_surface);
+  vector origin_vectors[3] = {80, -40, -40, 80, -40, 40, 0, -40, 40};
+  count_vector = 3;
+  difference diff = {20, 0, 0, 2, 0, 0, 0};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
+  for (int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
+  }
+}
+END_TEST
+
+START_TEST(affins_mult_2) {
+  vector *vectors;
+  surface_dot *surface;
+  int count_vector = 0, count_surface = 0;
+  int error = obj_read("test/test_cube.obj", &vectors, &surface, &count_vector,
+                       &count_surface);
+  vector origin_vectors[3] = {-40, 40, -40, -40, 40, 40, 40, 40, 40};
+  count_vector = 3;
+  difference diff = {0, 0, 0, 2, 0, 0, M_PI};
+  vector *result = calloc(count_vector, sizeof(vector));
+  recalculation(vectors, count_vector, result, diff);
+  for (int i = 0; i < count_vector; i++) {
+    ck_assert_double_eq_tol(result[i].x, origin_vectors[i].x, TOL);
+    ck_assert_double_eq_tol(result[i].y, origin_vectors[i].y, TOL);
+    ck_assert_double_eq_tol(result[i].z, origin_vectors[i].z, TOL);
   }
 }
 END_TEST
@@ -309,8 +339,6 @@ int main(void) {
   tcase_add_test(tc1_1, affins_move_2);
   tcase_add_test(tc1_1, affins_move_3);
   tcase_add_test(tc1_1, affins_size_1);
-  tcase_add_test(tc1_1, affins_size_2);
-  tcase_add_test(tc1_1, affins_size_3);
   tcase_add_test(tc1_1, affins_rotation_x_1);
   tcase_add_test(tc1_1, affins_rotation_x_2);
   tcase_add_test(tc1_1, affins_rotation_x_3);
@@ -320,6 +348,8 @@ int main(void) {
   tcase_add_test(tc1_1, affins_rotation_z_1);
   tcase_add_test(tc1_1, affins_rotation_z_2);
   tcase_add_test(tc1_1, affins_rotation_z_3);
+  tcase_add_test(tc1_1, affins_mult_1);
+  tcase_add_test(tc1_1, affins_mult_2);
   tcase_add_test(tc1_1, obj_reader_1);
   tcase_add_test(tc1_1, obj_reader_2);
 

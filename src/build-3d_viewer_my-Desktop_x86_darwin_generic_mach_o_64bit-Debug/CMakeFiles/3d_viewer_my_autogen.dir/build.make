@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my
+CMAKE_SOURCE_DIR = /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug
+CMAKE_BINARY_DIR = /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug
 
 # Utility rule file for 3d_viewer_my_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/3d_viewer_my_autogen.dir/compiler_depend.make
 include CMakeFiles/3d_viewer_my_autogen.dir/progress.make
 
 CMakeFiles/3d_viewer_my_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target 3d_viewer_my"
-	/usr/local/bin/cmake -E cmake_autogen /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target 3d_viewer_my"
+	/usr/local/bin/cmake -E cmake_autogen /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my_autogen.dir/AutogenInfo.json Debug
 
 3d_viewer_my_autogen: CMakeFiles/3d_viewer_my_autogen
 3d_viewer_my_autogen: CMakeFiles/3d_viewer_my_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/3d_viewer_my_autogen.dir/clean:
 .PHONY : CMakeFiles/3d_viewer_my_autogen.dir/clean
 
 CMakeFiles/3d_viewer_my_autogen.dir/depend:
-	cd /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/3d_viewer_my_autogen.dir/depend
 

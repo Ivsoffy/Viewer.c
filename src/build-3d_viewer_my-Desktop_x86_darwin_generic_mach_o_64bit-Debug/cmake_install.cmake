@@ -1,4 +1,4 @@
-# Install script for directory: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my
+# Install script for directory: /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

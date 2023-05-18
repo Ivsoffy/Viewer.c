@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my
+CMAKE_SOURCE_DIR = /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug
+CMAKE_BINARY_DIR = /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/3d_viewer_my.dir/depend.make
@@ -72,100 +72,100 @@ include CMakeFiles/3d_viewer_my.dir/flags.make
 CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: CMakeFiles/3d_viewer_my.dir/flags.make
 CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: 3d_viewer_my_autogen/mocs_compilation.cpp
 CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o: CMakeFiles/3d_viewer_my.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o -MF CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o -c /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o -MF CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.o -c /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/mocs_compilation.cpp
 
 CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/mocs_compilation.cpp > CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/mocs_compilation.cpp > CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/mocs_compilation.cpp -o CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/3d_viewer_my_autogen/mocs_compilation.cpp -o CMakeFiles/3d_viewer_my.dir/3d_viewer_my_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/3d_viewer_my.dir/main.cpp.o: CMakeFiles/3d_viewer_my.dir/flags.make
-CMakeFiles/3d_viewer_my.dir/main.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp
+CMakeFiles/3d_viewer_my.dir/main.cpp.o: /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp
 CMakeFiles/3d_viewer_my.dir/main.cpp.o: CMakeFiles/3d_viewer_my.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/3d_viewer_my.dir/main.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/main.cpp.o -MF CMakeFiles/3d_viewer_my.dir/main.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/main.cpp.o -c /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/3d_viewer_my.dir/main.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/main.cpp.o -MF CMakeFiles/3d_viewer_my.dir/main.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/main.cpp.o -c /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp
 
 CMakeFiles/3d_viewer_my.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3d_viewer_my.dir/main.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp > CMakeFiles/3d_viewer_my.dir/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp > CMakeFiles/3d_viewer_my.dir/main.cpp.i
 
 CMakeFiles/3d_viewer_my.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3d_viewer_my.dir/main.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp -o CMakeFiles/3d_viewer_my.dir/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/main.cpp -o CMakeFiles/3d_viewer_my.dir/main.cpp.s
 
 CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: CMakeFiles/3d_viewer_my.dir/flags.make
-CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp
+CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp
 CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o: CMakeFiles/3d_viewer_my.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o -MF CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o -c /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o -MF CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.o -c /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp
 
 CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp > CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp > CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.i
 
 CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp -o CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/mainwindow.cpp -o CMakeFiles/3d_viewer_my.dir/mainwindow.cpp.s
 
 CMakeFiles/3d_viewer_my.dir/glview.cpp.o: CMakeFiles/3d_viewer_my.dir/flags.make
-CMakeFiles/3d_viewer_my.dir/glview.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp
+CMakeFiles/3d_viewer_my.dir/glview.cpp.o: /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp
 CMakeFiles/3d_viewer_my.dir/glview.cpp.o: CMakeFiles/3d_viewer_my.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/3d_viewer_my.dir/glview.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/glview.cpp.o -MF CMakeFiles/3d_viewer_my.dir/glview.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/glview.cpp.o -c /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/3d_viewer_my.dir/glview.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/glview.cpp.o -MF CMakeFiles/3d_viewer_my.dir/glview.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/glview.cpp.o -c /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp
 
 CMakeFiles/3d_viewer_my.dir/glview.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3d_viewer_my.dir/glview.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp > CMakeFiles/3d_viewer_my.dir/glview.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp > CMakeFiles/3d_viewer_my.dir/glview.cpp.i
 
 CMakeFiles/3d_viewer_my.dir/glview.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3d_viewer_my.dir/glview.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp -o CMakeFiles/3d_viewer_my.dir/glview.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/glview.cpp -o CMakeFiles/3d_viewer_my.dir/glview.cpp.s
 
 CMakeFiles/3d_viewer_my.dir/obj_reader.c.o: CMakeFiles/3d_viewer_my.dir/flags.make
-CMakeFiles/3d_viewer_my.dir/obj_reader.c.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c
+CMakeFiles/3d_viewer_my.dir/obj_reader.c.o: /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c
 CMakeFiles/3d_viewer_my.dir/obj_reader.c.o: CMakeFiles/3d_viewer_my.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/3d_viewer_my.dir/obj_reader.c.o"
-	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/obj_reader.c.o -MF CMakeFiles/3d_viewer_my.dir/obj_reader.c.o.d -o CMakeFiles/3d_viewer_my.dir/obj_reader.c.o -c /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/3d_viewer_my.dir/obj_reader.c.o"
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/obj_reader.c.o -MF CMakeFiles/3d_viewer_my.dir/obj_reader.c.o.d -o CMakeFiles/3d_viewer_my.dir/obj_reader.c.o -c /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c
 
 CMakeFiles/3d_viewer_my.dir/obj_reader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/3d_viewer_my.dir/obj_reader.c.i"
-	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c > CMakeFiles/3d_viewer_my.dir/obj_reader.c.i
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c > CMakeFiles/3d_viewer_my.dir/obj_reader.c.i
 
 CMakeFiles/3d_viewer_my.dir/obj_reader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/3d_viewer_my.dir/obj_reader.c.s"
-	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c -o CMakeFiles/3d_viewer_my.dir/obj_reader.c.s
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/obj_reader.c -o CMakeFiles/3d_viewer_my.dir/obj_reader.c.s
 
 CMakeFiles/3d_viewer_my.dir/affins.c.o: CMakeFiles/3d_viewer_my.dir/flags.make
-CMakeFiles/3d_viewer_my.dir/affins.c.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c
+CMakeFiles/3d_viewer_my.dir/affins.c.o: /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c
 CMakeFiles/3d_viewer_my.dir/affins.c.o: CMakeFiles/3d_viewer_my.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/3d_viewer_my.dir/affins.c.o"
-	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/affins.c.o -MF CMakeFiles/3d_viewer_my.dir/affins.c.o.d -o CMakeFiles/3d_viewer_my.dir/affins.c.o -c /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/3d_viewer_my.dir/affins.c.o"
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/affins.c.o -MF CMakeFiles/3d_viewer_my.dir/affins.c.o.d -o CMakeFiles/3d_viewer_my.dir/affins.c.o -c /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c
 
 CMakeFiles/3d_viewer_my.dir/affins.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/3d_viewer_my.dir/affins.c.i"
-	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c > CMakeFiles/3d_viewer_my.dir/affins.c.i
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c > CMakeFiles/3d_viewer_my.dir/affins.c.i
 
 CMakeFiles/3d_viewer_my.dir/affins.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/3d_viewer_my.dir/affins.c.s"
-	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c -o CMakeFiles/3d_viewer_my.dir/affins.c.s
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/affins.c -o CMakeFiles/3d_viewer_my.dir/affins.c.s
 
 CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: CMakeFiles/3d_viewer_my.dir/flags.make
-CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp
+CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp
 CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o: CMakeFiles/3d_viewer_my.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o -MF CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o -c /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o -MF CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o.d -o CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.o -c /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp
 
 CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp > CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp > CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.i
 
 CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp -o CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my/openfiledialog.cpp -o CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.s
 
 # Object files for target 3d_viewer_my
 3d_viewer_my_OBJECTS = \
@@ -194,7 +194,7 @@ CMakeFiles/3d_viewer_my.dir/openfiledialog.cpp.s: cmake_force
 3d_viewer_my.app/Contents/MacOS/3d_viewer_my: /usr/local/lib/QtGui.framework/Versions/A/QtGui
 3d_viewer_my.app/Contents/MacOS/3d_viewer_my: /usr/local/lib/QtCore.framework/Versions/A/QtCore
 3d_viewer_my.app/Contents/MacOS/3d_viewer_my: CMakeFiles/3d_viewer_my.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable 3d_viewer_my.app/Contents/MacOS/3d_viewer_my"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable 3d_viewer_my.app/Contents/MacOS/3d_viewer_my"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/3d_viewer_my.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -206,6 +206,6 @@ CMakeFiles/3d_viewer_my.dir/clean:
 .PHONY : CMakeFiles/3d_viewer_my.dir/clean
 
 CMakeFiles/3d_viewer_my.dir/depend:
-	cd /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/coriande/Desktop/3d_viewer/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/waltlate/C8_3DViewer_v1.0-1/src/3d_viewer_my /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/3d_viewer_my.dir/depend
 
