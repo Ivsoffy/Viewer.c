@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>945</width>
-    <height>680</height>
+    <width>930</width>
+    <height>690</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>640</y>
+      <y>650</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -63,17 +63,22 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>600</y>
+      <y>610</y>
       <width>631</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {  
+	border-radius: 10px; 
+}</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>640</y>
+      <y>650</y>
       <width>121</width>
       <height>32</height>
      </rect>
@@ -126,11 +131,11 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="Vertex_Settenings">
+   <widget class="QComboBox" name="comboBox_3">
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>170</y>
+      <y>290</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -142,12 +147,12 @@
     </property>
     <item>
      <property name="text">
-      <string>Solid</string>
+      <string>Default</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Dashed</string>
+      <string>Solid</string>
      </property>
     </item>
    </widget>
@@ -209,7 +214,7 @@ background-color : white;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="Vertex_Color">
+   <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
       <x>850</x>
@@ -271,20 +276,14 @@ background-color : white;</string>
      <string>Y:</string>
     </property>
    </widget>
-   <widget class="QScrollBar" name="Scroll_RotateY">
+   <widget class="QScrollBar" name="horizontalScrollBar_6">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>690</x>
       <y>600</y>
-      <width>161</width>
+      <width>211</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="minimum">
-     <number>-628</number>
-    </property>
-    <property name="maximum">
-     <number>628</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -319,7 +318,7 @@ background-color : white;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="Edges_Color">
+   <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
       <x>850</x>
@@ -363,7 +362,7 @@ background-color : white;</string>
      <string>X:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Projection_Color">
+   <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
       <x>850</x>
@@ -383,21 +382,17 @@ background-color : white;</string>
      font: bold 14px;
      padding: 6px;
 }
-
-QPushButton::Pressed{
-	background-color: rgb(255, 255, 255);
-}
 </string>
     </property>
     <property name="text">
      <string> color</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="Edges_Settenings">
+   <widget class="QComboBox" name="comboBox_2">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>290</y>
+      <x>650</x>
+      <y>170</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -409,6 +404,11 @@ QPushButton::Pressed{
     </property>
     <item>
      <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Circle</string>
      </property>
     </item>
@@ -417,42 +417,28 @@ QPushButton::Pressed{
       <string>Square</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>None</string>
-     </property>
-    </item>
    </widget>
-   <widget class="QScrollBar" name="Scroll_RotateZ">
+   <widget class="QScrollBar" name="horizontalScrollBar_7">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>690</x>
       <y>630</y>
-      <width>161</width>
+      <width>211</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="minimum">
-     <number>-628</number>
-    </property>
-    <property name="maximum">
-     <number>628</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QScrollBar" name="Scroll_ShiftX">
+   <widget class="QScrollBar" name="horizontalScrollBar_2">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>690</x>
       <y>430</y>
-      <width>161</width>
+      <width>211</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
     </property>
     <property name="minimum">
      <number>-99</number>
@@ -461,36 +447,14 @@ QPushButton::Pressed{
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QScrollBar" name="Scroll_RotateX">
+   <widget class="QScrollBar" name="horizontalScrollBar_5">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>690</x>
       <y>570</y>
-      <width>161</width>
+      <width>211</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QScrollBar{
-	background-color: rgba(0, 0, 0, 77);
-
-}
-
-QScrollBar::add-line:horizontal {
-      border: none;
-      background: none;
-}
-
-QScrollBar::sub-line:horizontal {
-      border: none;
-      background: none;
-}</string>
-    </property>
-    <property name="minimum">
-     <number>-628</number>
-    </property>
-    <property name="maximum">
-     <number>628</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -529,7 +493,7 @@ background-color : white;</string>
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>360</y>
+      <y>390</y>
       <width>251</width>
       <height>31</height>
      </rect>
@@ -601,17 +565,14 @@ background-color : white;</string>
      <string>X:</string>
     </property>
    </widget>
-   <widget class="QScrollBar" name="Scroll_ShiftY">
+   <widget class="QScrollBar" name="horizontalScrollBar_3">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>690</x>
       <y>460</y>
-      <width>161</width>
+      <width>211</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
     </property>
     <property name="minimum">
      <number>-99</number>
@@ -685,30 +646,14 @@ background-color : white;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QScrollBar" name="Scroll_ShiftZ">
+   <widget class="QScrollBar" name="horizontalScrollBar_4">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>690</x>
       <y>490</y>
-      <width>161</width>
+      <width>211</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QScrollBar{
-	background-color: rgba(0, 0, 0, 77);
-
-}
-
-QScrollBar::add-line:horizontal {
-      border: none;
-      background: none;
-}
-
-QScrollBar::sub-line:horizontal {
-      border: none;
-      background: none;
-}</string>
     </property>
     <property name="minimum">
      <number>-99</number>
@@ -746,7 +691,7 @@ QScrollBar::sub-line:horizontal {
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>640</y>
+      <y>650</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -770,9 +715,9 @@ QScrollBar::sub-line:horizontal {
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>360</y>
+      <y>390</y>
       <width>251</width>
-      <height>301</height>
+      <height>271</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -804,14 +749,13 @@ background-color : white;</string>
       <height>31</height>
      </rect>
     </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
+    <property name="styleSheet">
+     <string notr="true">QDoubleSpinBox {  
+	border-radius: 10px; 
+}</string>
     </property>
     <property name="singleStep">
      <double>0.100000000000000</double>
-    </property>
-    <property name="value">
-     <double>0.500000000000000</double>
     </property>
    </widget>
    <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
@@ -823,50 +767,28 @@ background-color : white;</string>
       <height>31</height>
      </rect>
     </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
+    <property name="styleSheet">
+     <string notr="true">QDoubleSpinBox {  
+	border-radius: 10px; 
+}</string>
     </property>
     <property name="singleStep">
      <double>0.100000000000000</double>
-    </property>
-    <property name="value">
-     <double>5.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>570</y>
-      <width>58</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Vectors = </string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>570</y>
-      <width>58</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Surface=</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>90</x>
       <y>570</y>
       <width>113</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {  
+	border-radius: 10px; 
+}</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -875,334 +797,77 @@ background-color : white;</string>
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>300</x>
       <y>570</y>
       <width>113</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Shift_X">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>431</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDoubleSpinBox{
-	background-color : #c7ccb9;
-color:rgb(0, 0, 0);
-}</string>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
-    </property>
-    <property name="minimum">
-     <double>-99.000000000000000</double>
-    </property>
-    <property name="singleStep">
-     <double>0.100000000000000</double>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Shift_Y">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>460</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDoubleSpinBox{
-	background-color : #c7ccb9;
-color:rgb(0, 0, 0);
-}</string>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
-    </property>
-    <property name="minimum">
-     <double>-99.000000000000000</double>
-    </property>
-    <property name="singleStep">
-     <double>0.100000000000000</double>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Shift_Z">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>494</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDoubleSpinBox{
-	background-color : #c7ccb9;
-color:rgb(0, 0, 0);
-border:none;
-}</string>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
-    </property>
-    <property name="minimum">
-     <double>-99.000000000000000</double>
-    </property>
-    <property name="singleStep">
-     <double>0.100000000000000</double>
-    </property>
-   </widget>
-   <widget class="QScrollBar" name="Scroll_ShiftSize">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>400</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="minimum">
-     <number>0</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Shift_Size">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>400</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDoubleSpinBox{
-	background-color : #c7ccb9;
-color:rgb(0, 0, 0);
-}</string>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="singleStep">
-     <double>0.100000000000000</double>
-    </property>
-    <property name="value">
-     <double>1.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>400</y>
-      <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel{
-  color: #364330;
+     <string notr="true">QLineEdit {  
+	border-radius: 10px; 
 }</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Projection_9">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>570</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid #364330;
+  color: #364330;
+	border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: #DBF9B8;
+}
+
+background-color : white;</string>
     </property>
     <property name="text">
-     <string>S:</string>
+     <string>Surface</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QScrollBar" name="ScrollTimer">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
+   <widget class="QLabel" name="Projection_10">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>10</x>
       <y>570</y>
-      <width>211</width>
-      <height>20</height>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QScrollBar{
-	background-color: rgba(0, 0, 0, 77);
-
+     <string notr="true">QLabel {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid #364330;
+  color: #364330;
+	border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: #DBF9B8;
 }
 
-QScrollBar::add-line:horizontal {
-      border: none;
-      background: none;
-}
-
-QScrollBar::sub-line:horizontal {
-      border: none;
-      background: none;
-}</string>
+background-color : white;</string>
     </property>
-    <property name="minimum">
-     <number>0</number>
+    <property name="text">
+     <string>Vectors</string>
     </property>
-    <property name="maximum">
-     <number>30</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Rotate_X">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>570</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDoubleSpinBox{
-	background-color : #c7ccb9;
-color:rgb(0, 0, 0);
-border:none;
-}</string>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
-    </property>
-    <property name="minimum">
-     <double>-400.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>400.000000000000000</double>
-    </property>
-    <property name="singleStep">
-     <double>0.100000000000000</double>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Rotate_Y">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>600</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDoubleSpinBox{
-	background-color : #c7ccb9;
-color:rgb(0, 0, 0);
-border:none;
-}</string>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
-    </property>
-    <property name="minimum">
-     <double>-400.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>400.000000000000000</double>
-    </property>
-    <property name="singleStep">
-     <double>0.100000000000000</double>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Rotate_Z">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>630</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDoubleSpinBox{
-	background-color : #c7ccb9;
-color:rgb(0, 0, 0);
-border:none;
-}</string>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::NoButtons</enum>
-    </property>
-    <property name="minimum">
-     <double>-400.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>400.000000000000000</double>
-    </property>
-    <property name="singleStep">
-     <double>0.100000000000000</double>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <zorder>Projection_8</zorder>
@@ -1211,48 +876,38 @@ border:none;
    <zorder>lineEdit</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>comboBox</zorder>
-   <zorder>Vertex_Settenings</zorder>
+   <zorder>comboBox_3</zorder>
    <zorder>Projection_2</zorder>
    <zorder>Projection</zorder>
-   <zorder>Vertex_Color</zorder>
+   <zorder>pushButton_4</zorder>
    <zorder>label_6</zorder>
    <zorder>label_5</zorder>
-   <zorder>Scroll_RotateY</zorder>
+   <zorder>horizontalScrollBar_6</zorder>
    <zorder>Projection_5</zorder>
-   <zorder>Edges_Color</zorder>
+   <zorder>pushButton_5</zorder>
    <zorder>label_4</zorder>
-   <zorder>Edges_Settenings</zorder>
-   <zorder>Scroll_RotateZ</zorder>
-   <zorder>Scroll_ShiftX</zorder>
-   <zorder>Scroll_RotateX</zorder>
+   <zorder>pushButton_6</zorder>
+   <zorder>comboBox_2</zorder>
+   <zorder>horizontalScrollBar_7</zorder>
+   <zorder>horizontalScrollBar_2</zorder>
+   <zorder>horizontalScrollBar_5</zorder>
    <zorder>Projection_7</zorder>
    <zorder>Projection_4</zorder>
    <zorder>Projection_6</zorder>
    <zorder>label_2</zorder>
-   <zorder>Scroll_ShiftY</zorder>
+   <zorder>horizontalScrollBar_3</zorder>
    <zorder>label_3</zorder>
    <zorder>label_7</zorder>
    <zorder>Projection_3</zorder>
-   <zorder>Scroll_ShiftZ</zorder>
+   <zorder>horizontalScrollBar_4</zorder>
    <zorder>comboBox_4</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>doubleSpinBox</zorder>
    <zorder>doubleSpinBox_2</zorder>
-   <zorder>label</zorder>
-   <zorder>label_8</zorder>
    <zorder>lineEdit_2</zorder>
    <zorder>lineEdit_3</zorder>
-   <zorder>Projection_Color</zorder>
-   <zorder>Shift_X</zorder>
-   <zorder>Shift_Y</zorder>
-   <zorder>Shift_Z</zorder>
-   <zorder>Scroll_ShiftSize</zorder>
-   <zorder>Shift_Size</zorder>
-   <zorder>label_9</zorder>
-   <zorder>ScrollTimer</zorder>
-   <zorder>Rotate_X</zorder>
-   <zorder>Rotate_Y</zorder>
-   <zorder>Rotate_Z</zorder>
+   <zorder>Projection_9</zorder>
+   <zorder>Projection_10</zorder>
   </widget>
  </widget>
  <customwidgets>
