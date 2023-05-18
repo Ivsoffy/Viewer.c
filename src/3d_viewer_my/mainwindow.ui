@@ -25,7 +25,7 @@
       <x>10</x>
       <y>10</y>
       <width>631</width>
-      <height>551</height>
+      <height>541</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -40,7 +40,7 @@
      <rect>
       <x>10</x>
       <y>640</y>
-      <width>131</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -62,11 +62,16 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>600</y>
-      <width>631</width>
+      <x>140</x>
+      <y>640</y>
+      <width>371</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	border-radius: 10px;
+}</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -461,41 +466,6 @@ QPushButton::Pressed{
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QScrollBar" name="Scroll_RotateX">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>570</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QScrollBar{
-	background-color: rgba(0, 0, 0, 77);
-
-}
-
-QScrollBar::add-line:horizontal {
-      border: none;
-      background: none;
-}
-
-QScrollBar::sub-line:horizontal {
-      border: none;
-      background: none;
-}</string>
-    </property>
-    <property name="minimum">
-     <number>-628</number>
-    </property>
-    <property name="maximum">
-     <number>628</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="Projection_7">
     <property name="geometry">
      <rect>
@@ -685,38 +655,6 @@ background-color : white;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QScrollBar" name="Scroll_ShiftZ">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>490</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QScrollBar{
-	background-color: rgba(0, 0, 0, 77);
-
-}
-
-QScrollBar::add-line:horizontal {
-      border: none;
-      background: none;
-}
-
-QScrollBar::sub-line:horizontal {
-      border: none;
-      background: none;
-}</string>
-    </property>
-    <property name="minimum">
-     <number>-99</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboBox_4">
     <property name="geometry">
      <rect>
@@ -745,8 +683,8 @@ QScrollBar::sub-line:horizontal {
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>640</y>
+      <x>520</x>
+      <y>600</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -833,40 +771,19 @@ background-color : white;</string>
      <double>5.000000000000000</double>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>570</y>
-      <width>58</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Vectors = </string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>570</y>
-      <width>58</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Surface=</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>570</y>
-      <width>113</width>
-      <height>21</height>
+      <x>390</x>
+      <y>600</y>
+      <width>121</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	border-radius: 10px;
+}</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -875,11 +792,16 @@ background-color : white;</string>
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>570</y>
+      <x>140</x>
+      <y>600</y>
       <width>113</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	border-radius: 10px;
+}</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -963,7 +885,6 @@ color:rgb(0, 0, 0);
      <string notr="true">QDoubleSpinBox{
 	background-color : #c7ccb9;
 color:rgb(0, 0, 0);
-border:none;
 }</string>
     </property>
     <property name="frame">
@@ -1025,9 +946,6 @@ color:rgb(0, 0, 0);
     <property name="buttonSymbols">
      <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
     <property name="singleStep">
      <double>0.100000000000000</double>
     </property>
@@ -1059,10 +977,10 @@ color:rgb(0, 0, 0);
     </property>
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>10</x>
       <y>570</y>
-      <width>211</width>
-      <height>20</height>
+      <width>631</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1107,7 +1025,6 @@ QScrollBar::sub-line:horizontal {
      <string notr="true">QDoubleSpinBox{
 	background-color : #c7ccb9;
 color:rgb(0, 0, 0);
-border:none;
 }</string>
     </property>
     <property name="frame">
@@ -1145,7 +1062,6 @@ border:none;
      <string notr="true">QDoubleSpinBox{
 	background-color : #c7ccb9;
 color:rgb(0, 0, 0);
-border:none;
 }</string>
     </property>
     <property name="frame">
@@ -1183,7 +1099,6 @@ border:none;
      <string notr="true">QDoubleSpinBox{
 	background-color : #c7ccb9;
 color:rgb(0, 0, 0);
-border:none;
 }</string>
     </property>
     <property name="frame">
@@ -1205,6 +1120,102 @@ border:none;
      <double>0.100000000000000</double>
     </property>
    </widget>
+   <widget class="QLabel" name="Projection_9">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>600</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid #364330;
+  color: #364330;
+	border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: #DBF9B8;
+}
+
+background-color : white;</string>
+    </property>
+    <property name="text">
+     <string>Surface</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Projection_10">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>600</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid #364330;
+  color: #364330;
+	border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: #DBF9B8;
+}
+
+background-color : white;</string>
+    </property>
+    <property name="text">
+     <string>Vectors</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QScrollBar" name="Scroll_ShiftZ">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>490</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="minimum">
+     <number>-99</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QScrollBar" name="Scroll_RotateX">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>570</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>-628</number>
+    </property>
+    <property name="maximum">
+     <number>628</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
    <zorder>Projection_8</zorder>
    <zorder>openGLWidget</zorder>
    <zorder>pushButton</zorder>
@@ -1224,7 +1235,6 @@ border:none;
    <zorder>Edges_Settenings</zorder>
    <zorder>Scroll_RotateZ</zorder>
    <zorder>Scroll_ShiftX</zorder>
-   <zorder>Scroll_RotateX</zorder>
    <zorder>Projection_7</zorder>
    <zorder>Projection_4</zorder>
    <zorder>Projection_6</zorder>
@@ -1233,13 +1243,10 @@ border:none;
    <zorder>label_3</zorder>
    <zorder>label_7</zorder>
    <zorder>Projection_3</zorder>
-   <zorder>Scroll_ShiftZ</zorder>
    <zorder>comboBox_4</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>doubleSpinBox</zorder>
    <zorder>doubleSpinBox_2</zorder>
-   <zorder>label</zorder>
-   <zorder>label_8</zorder>
    <zorder>lineEdit_2</zorder>
    <zorder>lineEdit_3</zorder>
    <zorder>Projection_Color</zorder>
@@ -1253,6 +1260,10 @@ border:none;
    <zorder>Rotate_X</zorder>
    <zorder>Rotate_Y</zorder>
    <zorder>Rotate_Z</zorder>
+   <zorder>Projection_9</zorder>
+   <zorder>Projection_10</zorder>
+   <zorder>Scroll_ShiftZ</zorder>
+   <zorder>Scroll_RotateX</zorder>
   </widget>
  </widget>
  <customwidgets>
