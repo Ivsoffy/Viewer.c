@@ -25,14 +25,15 @@ glView::glView(QWidget*parent):QOpenGLWidget(parent) {
 }
 
 void glView::initializeGL() {
-  glViewport(0, 0, width(), height());
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(-4.0, 4.0 , -4.0 ,4.0 ,-100.5 , 100.5);
-//  glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0);
-//  glFrustum(-4, 4, -4, 4, 1.5, 1000.0);
-  glMatrixMode(GL_MODELVIEW);
-//    this->UpdateProjection(0);
+//  glViewport(0, 0, width(), height());
+//  glMatrixMode(GL_PROJECTION);
+//  glLoadIdentity();
+////  glOrtho(-4.0, 4.0 , -4.0 ,4.0 ,-100.5 , 100.5);
+////  glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0);
+//  glFrustum(-1, 1, -1, 1, 1, 1000.0);
+//  glTranslatef(0,0,-10);
+//  glMatrixMode(GL_MODELVIEW);
+    this->UpdateProjection(0);
 }
 
 void glView::SetShift_XYZ(QDoubleSpinBox* X, QDoubleSpinBox* Y, QDoubleSpinBox* Z, QDoubleSpinBox* Size) {
@@ -247,18 +248,19 @@ void glView::SaveGif() {
         frames.clear();
 }
 
-void glView::UpdateProjection(int index) { // do not work perspective is trash irl
+void glView::UpdateProjection(int index) {
    this->ProjectionType = index;
     glViewport(0, 0, width(), height());
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
      if ( this->ProjectionType==1)
      {
-         glFrustum(-4, 4, -4, 4, 1, 100);
+          glFrustum(-1, 1, -1, 1, 1, 1000.0);
+          glTranslatef(0,0,-10);
      }
      else
      {
-         glOrtho(-4, 4, -4, 4, -100, 100);
+        glOrtho(-4.0, 4.0 , -4.0 ,4.0 ,-100.5 , 100.5);
      }
      glMatrixMode(GL_MODELVIEW);
     this->update();
