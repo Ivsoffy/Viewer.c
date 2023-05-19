@@ -401,7 +401,7 @@ QPushButton::Pressed{
    <widget class="QComboBox" name="Edges_Settenings">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>650</x>
       <y>290</y>
       <width>201</width>
       <height>31</height>
@@ -916,7 +916,10 @@ color:rgb(0, 0, 0);
      <string notr="true"/>
     </property>
     <property name="minimum">
-     <number>0</number>
+     <number>1</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>

@@ -1,4 +1,4 @@
-.PHONY: all install uninstall clean dvi dist test check_mk gcov_report install_lcov brew lcov style_check valgrind
+.PHONY: all install uninstall clean dvi dist test check_mk gcov_report install_lcov brew lcov style_check style valgrind
 
 CC = gcc -std=c11 -g
 FLAGS = -Wall -Wextra -Werror
@@ -69,6 +69,9 @@ lcov:
 
 style_check:
 	clang-format --style=Google -n $(SOURCE_BUILD)/*.c $(SOURCE_BUILD)/*.h $(SOURCE_BUILD)/*.cpp
+
+style:
+	clang-format --style=Google -i $(SOURCE_BUILD)/*.c $(SOURCE_BUILD)/*.h $(SOURCE_BUILD)/*.cpp
 
 valgrind:
 	gcc $(SOURCES) $(TEST_FILE) $(FLAGS_TEST) -o $(TEST_OUT)

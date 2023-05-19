@@ -1,4 +1,0 @@
-/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my.dir
-/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/edit_cache.dir
-/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/rebuild_cache.dir
-/Users/waltlate/C8_3DViewer_v1.0-1/src/build-3d_viewer_my-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3d_viewer_my_autogen.dir

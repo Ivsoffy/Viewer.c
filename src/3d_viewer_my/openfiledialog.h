@@ -3,10 +3,9 @@
 
 #include <QtWidgets/QFileDialog.h>
 
-class OpenFileDialog
-{
-public:
-    QString GetFileName();
+class OpenFileDialog {
+ public:
+  QString GetFileName();
 };
 
-#endif // OPENFILEDIALOG_H
+#endif  // OPENFILEDIALOG_H

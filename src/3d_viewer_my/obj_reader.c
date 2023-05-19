@@ -5,30 +5,6 @@
 #include <string.h>
 #define LEN 1256
 
-// int main() {
-//   vector *vectors;
-//   vector origin_vectors[8] = {0,  0,   -20, 20,  -20, 20,  -20, -20,
-//                               20, -20, -20, -20, 20,  20,  -20, 20,
-//                               20, 20,  -20, 20,  20,  -20, 20,  -20};
-//   surface_dot *surface;
-//   int count_vector = 0, count_surface = 0;
-//   int error = obj_read("../test/test_cube.obj", &vectors, &surface,
-//                        &count_vector, &count_surface);
-//   print_vector(vectors, count_vector);
-//   // print_vector(origin_vectors, count_vector);
-//   // print_surface(surface, count_surface);
-
-//   // vector *vectors;
-//   // surface_dot *surface;
-//   // int count_vector = 0, count_surface = 0;
-//   // // obj_read("Pyramids.obj", &vectors, &surface, &count_vector,
-//   // // &count_surface);
-//   // obj_read("cube.obj", &vectors, &surface, &count_vector, &count_surface);
-//   // print_vector(vectors, count_vector);
-//   // print_surface(surface, count_surface);
-//   return 0;
-// }
-
 extern int obj_read(const char *filename, vector **vectors,
                     surface_dot **surface, int *count_vector,
                     int *count_surface) {
@@ -107,19 +83,3 @@ void parcing_file(const char *filename, vector **vectors, surface_dot **surface,
   *surface = sur;
   *vectors = mas;
 }
-
-// void print_vector(vector *mas, int count_vector) {
-//   for (int i = 0; i < count_vector; i++) {
-//     printf("%lf %lf %lf\n", mas[i].x, mas[i].y, mas[i].z);
-//   }
-// }
-
-// void print_surface(surface_dot *surface, int count_surface) {
-//   for (int i = 0; i < count_surface; i++) {
-//     printf("%d\n", surface[i].number_dot_surface);
-//     for (int j = 0; j < surface[i].number_dot_surface; j++) {
-//       printf("%d ", surface[i].v[j]);
-//     }
-//     printf("\n");
-//   }
-// }
